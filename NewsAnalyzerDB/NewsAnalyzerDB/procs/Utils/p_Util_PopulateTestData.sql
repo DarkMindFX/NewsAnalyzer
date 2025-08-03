@@ -1,9 +1,8 @@
-﻿
-/*
+﻿/*
 Usage:
 1. From local file
 
-EXEC dbo.[p_Util_UserRole_Seed] 'd:\Projects\NewsArticle\SeedData\'
+EXEC dbo.[p_Util_PopulateTestData] 'd:\Projects\NewsAnalyzer\SeedData\'
 
 2. From Azure Blob
 
@@ -21,7 +20,7 @@ WITH (
     );
 GO 
 
-EXEC dbo.[p_Util_UserRole_Seed] 'XYZABCD-seed-data/', 'NewsMonitor_Azure_SeedData'
+EXEC dbo.[p_Util_PopulateTestData] 'XYZABCD-seed-data/', 'NewsMonitor_Azure_SeedData'
 
 DROP EXTERNAL DATA SOURCE NewsMonitor_Azure_SeedData
 
@@ -29,17 +28,14 @@ DROP DATABASE SCOPED CREDENTIAL UploadNewsMonitorSeedData
 
 DROP MASTER KEY
 */
-CREATE PROCEDURE [dbo].[p_Util_Article_Seed]
+
+CREATE PROCEDURE [dbo].[p_Util_PopulateTestData]
 	@RootFolder NVARCHAR(100),
 	@DataSource NVARCHAR(100) = NULL
 AS
 BEGIN
-	
-	SET NOCOUNT ON;
-
-	DECLARE @file AS NVARCHAR(100) = 'Article.csv'
-	DECLARE @table AS NVARCHAR(100) = 'Article'
-    DECLARE @hasIdentity AS BIT = 1
-
-	EXEC dbo.p_Util_SeedTable @RootFolder, @file, @table, @hasIdentity, @DataSource
+	EXEC [dbo].[p_Util_NewsSource_Seed] @RootFolder, @DataSource
+	EXEC [dbo].[p_Util_Analyzer_Seed] @RootFolder, @DataSource
+	EXEC [dbo].[p_Util_Article_Seed] @RootFolder, @DataSource
+	EXEC [dbo].[p_Util_ArticleAnalysis_Seed] @RootFolder, @DataSource
 END

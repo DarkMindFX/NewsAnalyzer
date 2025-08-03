@@ -9,6 +9,7 @@ BEGIN
 
 	DELETE FROM [dbo].[ArticleAnalysis]
 	DELETE FROM [dbo].[Article]
+	DELETE FROM [dbo].[Analyzer]
 	DELETE FROM [dbo].[NewsSource]
 
 	DELETE FROM [dbo].[SentimentType] 

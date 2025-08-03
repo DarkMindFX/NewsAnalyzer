@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[ArticleAnalysis]
 	[SentimentID]	BIGINT NOT NULL,
 	[AnalyzerID]	BIGINT NOT NULL,
 
-	CONSTRAINT [FK_ArticleAnalysis_Articale] FOREIGN KEY ([ArticleID]) REFERENCES [dbo].[Articale]([ID]),
+	CONSTRAINT [FK_ArticleAnalysis_Articale] FOREIGN KEY ([ArticleID]) REFERENCES [dbo].[Article]([ID]),
 	CONSTRAINT [FK_ArticleAnalysis_SentimentType] FOREIGN KEY ([SentimentID]) REFERENCES [dbo].[SentimentType]([ID]),
 	CONSTRAINT [FK_ArticleAnalysis_Analyzer] FOREIGN KEY ([AnalyzerID]) REFERENCES [dbo].[Analyzer]([ID])
 

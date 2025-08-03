@@ -1,5 +1,5 @@
 ﻿-- Table contains list of articles
-CREATE TABLE [dbo].[Articale]
+CREATE TABLE [dbo].[Article]
 (
 	[ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[Title] NVARCHAR(255) NOT NULL,
