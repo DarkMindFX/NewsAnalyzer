@@ -1,0 +1,11 @@
+ID,Name,IsActive
+1,Text Sentiment Analyzer,1
+2,Image Sentiment Analyzer,1
+3,Financial News Analyzer,1
+4,Political News Analyzer,1
+5,Sports News Analyzer,1
+6,Health News Analyzer,1
+7,Technology News Analyzer,1
+8,Entertainment News Analyzer,0
+9,Weather News Analyzer,1
+10,Global Events Analyzer,0

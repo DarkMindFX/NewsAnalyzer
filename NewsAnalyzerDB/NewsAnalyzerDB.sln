@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NewsAnalyzerDB", "NewsAnalyzerDB\NewsAnalyzerDB.sqlproj", "{5099D5D9-35F0-49D6-A2E4-185B67554F8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5099D5D9-35F0-49D6-A2E4-185B67554F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5099D5D9-35F0-49D6-A2E4-185B67554F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5099D5D9-35F0-49D6-A2E4-185B67554F8D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5099D5D9-35F0-49D6-A2E4-185B67554F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5099D5D9-35F0-49D6-A2E4-185B67554F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5099D5D9-35F0-49D6-A2E4-185B67554F8D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54255C47-A235-49F7-9E9D-5EC14B722BA3}
+	EndGlobalSection
+EndGlobal
