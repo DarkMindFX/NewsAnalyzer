@@ -1,0 +1,53 @@
+
+
+
+-- original values --
+DECLARE @ID BIGINT = NULL
+DECLARE @Name NVARCHAR(255) = 'Name 43440f5ce8064bfaa4dd6466fdbcb01d'
+DECLARE @Url NVARCHAR(255) = 'Url 43440f5ce8064bfaa4dd6466fdbcb01d'
+DECLARE @IsActive BIT = 1
+ 
+-- updated values --
+
+DECLARE @updID BIGINT = NULL
+DECLARE @updName NVARCHAR(255) = 'Name 969db972a797442388be46b2adeaaac6'
+DECLARE @updUrl NVARCHAR(255) = 'Url 969db972a797442388be46b2adeaaac6'
+DECLARE @updIsActive BIT = 1
+ 
+
+DECLARE @Fail AS BIT = 0
+
+IF(NOT EXISTS(SELECT 1 FROM 
+				[dbo].[NewsSource]
+				WHERE 
+	(CASE WHEN @updName IS NOT NULL THEN (CASE WHEN [Name] = @updName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updUrl IS NOT NULL THEN (CASE WHEN [Url] = @updUrl THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updIsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @updIsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+
+DELETE FROM 
+	[dbo].[NewsSource]
+	WHERE 
+	(CASE WHEN @Name IS NOT NULL THEN (CASE WHEN [Name] = @Name THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Url IS NOT NULL THEN (CASE WHEN [Url] = @Url THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @IsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+	SET @Fail = 1
+END
+ELSE
+BEGIN
+DELETE FROM 
+	[dbo].[NewsSource]
+	WHERE 
+	(CASE WHEN @updName IS NOT NULL THEN (CASE WHEN [Name] = @updName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updUrl IS NOT NULL THEN (CASE WHEN [Url] = @updUrl THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updIsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @updIsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+END
+
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'NewsSource was not updated', 1
+END

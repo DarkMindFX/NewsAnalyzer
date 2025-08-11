@@ -1,0 +1,24 @@
+
+
+
+DECLARE @ID BIGINT = NULL
+DECLARE @Name NVARCHAR(255) = 'Name 0f701d3ba0e34517bdde76a141ddfa71'
+DECLARE @IsActive BIT = 1
+ 
+
+
+IF(EXISTS(SELECT 1 FROM 
+					[dbo].[Analyzer]
+				WHERE 
+	(CASE WHEN @Name IS NOT NULL THEN (CASE WHEN [Name] = @Name THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @IsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+
+DELETE FROM [dbo].[Analyzer]
+WHERE 
+	(CASE WHEN @Name IS NOT NULL THEN (CASE WHEN [Name] = @Name THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @IsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+END

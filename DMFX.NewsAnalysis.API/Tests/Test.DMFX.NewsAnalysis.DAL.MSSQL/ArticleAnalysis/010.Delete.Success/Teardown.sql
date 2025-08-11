@@ -1,0 +1,39 @@
+
+
+
+DECLARE @ID BIGINT = NULL
+DECLARE @Timestamp DATETIME = '12/18/2024 3:57:32 AM'
+DECLARE @ArticleID BIGINT = 16
+DECLARE @SentimentID BIGINT = 7
+DECLARE @AnalyzerID BIGINT = 9
+ 
+DECLARE @Fail AS BIT = 0
+
+IF(EXISTS(SELECT 1 FROM 
+				[dbo].[ArticleAnalysis]
+				WHERE 
+
+	1=1 AND
+	(CASE WHEN @Timestamp IS NOT NULL THEN (CASE WHEN [Timestamp] = @Timestamp THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ArticleID IS NOT NULL THEN (CASE WHEN [ArticleID] = @ArticleID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @SentimentID IS NOT NULL THEN (CASE WHEN [SentimentID] = @SentimentID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @AnalyzerID IS NOT NULL THEN (CASE WHEN [AnalyzerID] = @AnalyzerID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+	SET @Fail = 1
+END
+
+DELETE FROM 
+	[dbo].[ArticleAnalysis]
+	WHERE 
+	1=1 AND
+	(CASE WHEN @Timestamp IS NOT NULL THEN (CASE WHEN [Timestamp] = @Timestamp THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @ArticleID IS NOT NULL THEN (CASE WHEN [ArticleID] = @ArticleID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @SentimentID IS NOT NULL THEN (CASE WHEN [SentimentID] = @SentimentID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @AnalyzerID IS NOT NULL THEN (CASE WHEN [AnalyzerID] = @AnalyzerID THEN 1 ELSE 0 END) ELSE 1 END) = 1  
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'ArticleAnalysis was not deleted', 1
+END

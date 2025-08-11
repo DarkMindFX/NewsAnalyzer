@@ -1,0 +1,19 @@
+
+
+
+using DMFX.NewsAnalysis.Interfaces.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DMFX.NewsAnalysis.Services.Dal
+{
+    public interface INewsSourceDal : IDalBase<NewsSource>
+    {
+        NewsSource Get(System.Int64? ID);
+
+        bool Delete(System.Int64? ID);
+
+    
+        }
+}

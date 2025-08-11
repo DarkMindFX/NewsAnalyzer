@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>DMFX.NewsAnalysis.Utils</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Convertors\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DMFX.NewsAnalysis.DTO\DMFX.NewsAnalysis.DTO.csproj" />
+    <ProjectReference Include="..\DMFX.NewsAnalysis.Interfaces\DMFX.NewsAnalysis.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

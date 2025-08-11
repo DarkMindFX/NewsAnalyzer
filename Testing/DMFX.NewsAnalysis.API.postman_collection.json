@@ -1,0 +1,1029 @@
+
+
+
+{
+	"info": {
+		"_postman_id": "BC1C4F03-F7A1-4A11-8F35-EDB40AD47891",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		
+		
+	{
+			"name": "Analyzer",
+			"item": [
+				{
+					"name": "Analyzer - Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 39a98037-0439-4f6a-92f5-f2bedb90f896\",\r\n  \"IsActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/analyzers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"analyzers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analyzer - Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/analyzers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"analyzers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analyzer - Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 39a98037-0439-4f6a-92f5-f2bedb90f896\",\r\n  \"IsActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/analyzers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"analyzers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analyzer - Get By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/analyzers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"analyzers"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analyzer - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/analyzers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"analyzers"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				}
+					]
+		},
+		
+	{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Article - Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title c095c84c-4abe-4273-ab57-10cc014b220e\",\r\n  \"Content\": \"Content 763fea22-4543-4db3-ac03-53c0d277d352\",\r\n  \"Timestamp\": \"2021-10-01 21:35:00\",\r\n  \"NewsSourceID\": 9999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Article - Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Article - Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title c095c84c-4abe-4273-ab57-10cc014b220e\",\r\n  \"Content\": \"Content 763fea22-4543-4db3-ac03-53c0d277d352\",\r\n  \"Timestamp\": \"2021-10-01 21:35:00\",\r\n  \"NewsSourceID\": 9999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Article - Get By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articles/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Article - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articles/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				}
+					,
+			{
+					"name": "Article - Get By NewsSourceID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articles/bynewssourceid/:newssourceid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articles",
+								"bynewssourceid",
+								":newssourceid"
+						
+							]
+						}
+					},
+					"response": []
+				}
+					]
+		},
+		
+	{
+			"name": "ArticleAnalysis",
+			"item": [
+				{
+					"name": "ArticleAnalysis - Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Timestamp\": \"2021-10-01 21:35:00\",\r\n  \"ArticleID\": 9999999,\r\n  \"SentimentID\": 9999999,\r\n  \"AnalyzerID\": 9999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ArticleAnalysis - Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ArticleAnalysis - Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Timestamp\": \"2021-10-01 21:35:00\",\r\n  \"ArticleID\": 9999999,\r\n  \"SentimentID\": 9999999,\r\n  \"AnalyzerID\": 9999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ArticleAnalysis - Get By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ArticleAnalysis - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				}
+					,
+			{
+					"name": "ArticleAnalysis - Get By ArticleID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises/byarticleid/:articleid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises",
+								"byarticleid",
+								":articleid"
+						
+							]
+						}
+					},
+					"response": []
+				}
+					,
+			{
+					"name": "ArticleAnalysis - Get By SentimentID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises/bysentimentid/:sentimentid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises",
+								"bysentimentid",
+								":sentimentid"
+						
+							]
+						}
+					},
+					"response": []
+				}
+					,
+			{
+					"name": "ArticleAnalysis - Get By AnalyzerID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/articleanalysises/byanalyzerid/:analyzerid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"articleanalysises",
+								"byanalyzerid",
+								":analyzerid"
+						
+							]
+						}
+					},
+					"response": []
+				}
+					]
+		},
+		
+	{
+			"name": "NewsSource",
+			"item": [
+				{
+					"name": "NewsSource - Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name be99226b-a059-428c-9ca2-f8c0554e8dcb\",\r\n  \"Url\": \"Url 12020457-eaeb-4a35-b821-4aa4e5f9e2d9\",\r\n  \"IsActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/newssources",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"newssources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewsSource - Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/newssources",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"newssources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewsSource - Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name be99226b-a059-428c-9ca2-f8c0554e8dcb\",\r\n  \"Url\": \"Url 12020457-eaeb-4a35-b821-4aa4e5f9e2d9\",\r\n  \"IsActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/newssources",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"newssources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewsSource - Get By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/newssources/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"newssources"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewsSource - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/newssources/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"newssources"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				}
+					]
+		},
+		
+	{
+			"name": "SentimentType",
+			"item": [
+				{
+					"name": "SentimentType - Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 4ea90584-f180-473b-8fb3-a9b7dfe0de76\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/sentimenttypes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"sentimenttypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SentimentType - Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/sentimenttypes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"sentimenttypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SentimentType - Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 4ea90584-f180-473b-8fb3-a9b7dfe0de76\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/sentimenttypes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"sentimenttypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SentimentType - Get By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/sentimenttypes/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"sentimenttypes"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SentimentType - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/sentimenttypes/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"sentimenttypes"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				}
+					]
+		}
+		]
+		
+}

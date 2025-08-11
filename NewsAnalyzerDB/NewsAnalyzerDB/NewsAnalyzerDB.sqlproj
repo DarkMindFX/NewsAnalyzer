@@ -64,6 +64,10 @@
     <Folder Include="procs\SentimentType" />
     <Folder Include="procs\Utils\Constants" />
     <Folder Include="procs\Utils\TestData" />
+    <Folder Include="procs\NewsSource" />
+    <Folder Include="procs\ArticleAnalysis" />
+    <Folder Include="procs\Article" />
+    <Folder Include="procs\Analyzer" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Analyzer.sql" />
@@ -80,6 +84,35 @@
     <Build Include="procs\Utils\TestData\p_Util_Article_Seed.sql" />
     <Build Include="procs\Utils\TestData\p_Util_ArticleAnalysis_Seed.sql" />
     <Build Include="procs\Utils\p_Util_PopulateTestData.sql" />
+    <Build Include="procs\SentimentType\p_SentimentType_Delete.sql" />
+    <Build Include="procs\SentimentType\p_SentimentType_GetAll.sql" />
+    <Build Include="procs\SentimentType\p_SentimentType_GetDetails.sql" />
+    <Build Include="procs\SentimentType\p_SentimentType_Insert.sql" />
+    <Build Include="procs\SentimentType\p_SentimentType_Update.sql" />
+    <Build Include="procs\NewsSource\p_NewsSource_Delete.sql" />
+    <Build Include="procs\NewsSource\p_NewsSource_GetAll.sql" />
+    <Build Include="procs\NewsSource\p_NewsSource_GetDetails.sql" />
+    <Build Include="procs\NewsSource\p_NewsSource_Insert.sql" />
+    <Build Include="procs\NewsSource\p_NewsSource_Update.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_Delete.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_GetAll.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_GetByAnalyzerID.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_GetByArticleID.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_GetBySentimentID.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_GetDetails.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_Insert.sql" />
+    <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_Update.sql" />
+    <Build Include="procs\Article\p_Article_Delete.sql" />
+    <Build Include="procs\Article\p_Article_GetAll.sql" />
+    <Build Include="procs\Article\p_Article_GetByNewsSourceID.sql" />
+    <Build Include="procs\Article\p_Article_GetDetails.sql" />
+    <Build Include="procs\Article\p_Article_Insert.sql" />
+    <Build Include="procs\Article\p_Article_Update.sql" />
+    <Build Include="procs\Analyzer\p_Analyzer_Delete.sql" />
+    <Build Include="procs\Analyzer\p_Analyzer_GetAll.sql" />
+    <Build Include="procs\Analyzer\p_Analyzer_GetDetails.sql" />
+    <Build Include="procs\Analyzer\p_Analyzer_Insert.sql" />
+    <Build Include="procs\Analyzer\p_Analyzer_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NewsAnalyzerDB.refactorlog" />

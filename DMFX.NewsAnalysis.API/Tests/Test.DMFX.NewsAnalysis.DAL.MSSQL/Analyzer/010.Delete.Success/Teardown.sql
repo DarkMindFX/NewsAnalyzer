@@ -1,0 +1,33 @@
+
+
+
+DECLARE @ID BIGINT = NULL
+DECLARE @Name NVARCHAR(255) = 'Name bcd928dedb7a488b8c83b2d062642270'
+DECLARE @IsActive BIT = 1
+ 
+DECLARE @Fail AS BIT = 0
+
+IF(EXISTS(SELECT 1 FROM 
+				[dbo].[Analyzer]
+				WHERE 
+
+	1=1 AND
+	(CASE WHEN @Name IS NOT NULL THEN (CASE WHEN [Name] = @Name THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @IsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+	SET @Fail = 1
+END
+
+DELETE FROM 
+	[dbo].[Analyzer]
+	WHERE 
+	1=1 AND
+	(CASE WHEN @Name IS NOT NULL THEN (CASE WHEN [Name] = @Name THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @IsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @IsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1  
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'Analyzer was not deleted', 1
+END

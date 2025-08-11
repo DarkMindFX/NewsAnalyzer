@@ -1,0 +1,36 @@
+
+
+
+DECLARE @ID BIGINT = NULL
+DECLARE @Name NVARCHAR(255) = 'Name edd3cbe9382d4149a061cbeb18246bbe'
+DECLARE @Url NVARCHAR(255) = 'Url edd3cbe9382d4149a061cbeb18246bbe'
+DECLARE @IsActive BIT = 1
+ 
+DECLARE @Fail AS BIT = 0
+
+IF(EXISTS(SELECT 1 FROM 
+				[dbo].[NewsSource]
+				WHERE 
+
+	1=1 AND
+	(CASE WHEN @Name IS NOT NULL THEN (CASE WHEN [Name] = @Name THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Url IS NOT NULL THEN (CASE WHEN [Url] = @Url THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @IsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+	SET @Fail = 1
+END
+
+DELETE FROM 
+	[dbo].[NewsSource]
+	WHERE 
+	1=1 AND
+	(CASE WHEN @Name IS NOT NULL THEN (CASE WHEN [Name] = @Name THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @Url IS NOT NULL THEN (CASE WHEN [Url] = @Url THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @IsActive IS NOT NULL THEN (CASE WHEN [IsActive] = @IsActive THEN 1 ELSE 0 END) ELSE 1 END) = 1  
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'NewsSource was not deleted', 1
+END

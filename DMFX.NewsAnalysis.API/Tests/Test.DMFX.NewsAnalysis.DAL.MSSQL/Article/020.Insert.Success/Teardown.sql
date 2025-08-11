@@ -1,0 +1,36 @@
+
+
+
+DECLARE @ID BIGINT = NULL
+DECLARE @Title NVARCHAR(255) = 'Title cae04eb615cc49f7a1615cae8a6ff4e5'
+DECLARE @Content NVARCHAR(4000) = 'Content cae04eb615cc49f7a1615cae8a6ff4e5'
+DECLARE @Timestamp DATETIME = '5/10/2026 5:42:32 AM'
+DECLARE @NewsSourceID BIGINT = 8
+ 
+DECLARE @Fail AS BIT = 0
+
+IF(NOT EXISTS(SELECT 1 FROM 
+				[dbo].[Article]
+				WHERE 
+	(CASE WHEN @Title IS NOT NULL THEN (CASE WHEN [Title] = @Title THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Content IS NOT NULL THEN (CASE WHEN [Content] = @Content THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Timestamp IS NOT NULL THEN (CASE WHEN [Timestamp] = @Timestamp THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @NewsSourceID IS NOT NULL THEN (CASE WHEN [NewsSourceID] = @NewsSourceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+	SET @Fail = 1
+END
+
+DELETE FROM 
+	[dbo].[Article]
+	WHERE 
+	(CASE WHEN @Title IS NOT NULL THEN (CASE WHEN [Title] = @Title THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Content IS NOT NULL THEN (CASE WHEN [Content] = @Content THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Timestamp IS NOT NULL THEN (CASE WHEN [Timestamp] = @Timestamp THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @NewsSourceID IS NOT NULL THEN (CASE WHEN [NewsSourceID] = @NewsSourceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'Article was not inserted', 1
+END
