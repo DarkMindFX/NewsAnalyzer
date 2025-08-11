@@ -102,12 +102,6 @@
     <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_GetDetails.sql" />
     <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_Insert.sql" />
     <Build Include="procs\ArticleAnalysis\p_ArticleAnalysis_Update.sql" />
-    <Build Include="procs\Article\p_Article_Delete.sql" />
-    <Build Include="procs\Article\p_Article_GetAll.sql" />
-    <Build Include="procs\Article\p_Article_GetByNewsSourceID.sql" />
-    <Build Include="procs\Article\p_Article_GetDetails.sql" />
-    <Build Include="procs\Article\p_Article_Insert.sql" />
-    <Build Include="procs\Article\p_Article_Update.sql" />
     <Build Include="procs\Analyzer\p_Analyzer_Delete.sql" />
     <Build Include="procs\Analyzer\p_Analyzer_GetAll.sql" />
     <Build Include="procs\Analyzer\p_Analyzer_GetDetails.sql" />

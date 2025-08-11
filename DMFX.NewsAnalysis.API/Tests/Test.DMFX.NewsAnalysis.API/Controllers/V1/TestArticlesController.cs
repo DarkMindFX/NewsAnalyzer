@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.API.Controllers.V1
 {
@@ -25,11 +25,9 @@ namespace Test.E2E.API.Controllers.V1
         {
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
 
                 var respGetAll = client.GetAsync($"/api/v1/articles");
 
@@ -47,15 +45,12 @@ namespace Test.E2E.API.Controllers.V1
             DMFX.NewsAnalysis.Interfaces.Entities.Article testEntity = AddTestEntity();
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/articles/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -77,12 +72,9 @@ namespace Test.E2E.API.Controllers.V1
         {
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 var paramID = Int64.MaxValue;
 
                 var respGet = client.GetAsync($"/api/v1/articles/{paramID}");
@@ -97,15 +89,12 @@ namespace Test.E2E.API.Controllers.V1
             var testEntity = AddTestEntity();
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/articles/{paramID}");
 
@@ -123,12 +112,9 @@ namespace Test.E2E.API.Controllers.V1
         {
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 var paramID = Int64.MaxValue;
 
                 var respDel = client.DeleteAsync($"/api/v1/articles/{paramID}");
@@ -142,12 +128,9 @@ namespace Test.E2E.API.Controllers.V1
         {
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
 
                 DMFX.NewsAnalysis.Interfaces.Entities.Article testEntity = CreateTestEntity();
                 DMFX.NewsAnalysis.Interfaces.Entities.Article respEntity = null;
@@ -163,12 +146,14 @@ namespace Test.E2E.API.Controllers.V1
 
                     Article respDto = ExtractContentJson<Article>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.Title, respDto.Title);
-                    Assert.Equal(reqDto.Content, respDto.Content);
-                    Assert.Equal(reqDto.Timestamp, respDto.Timestamp);
-                    Assert.Equal(reqDto.NewsSourceID, respDto.NewsSourceID);
-
+                                    Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.Title, respDto.Title);
+                                    Assert.Equal(reqDto.Content, respDto.Content);
+                                    Assert.Equal(reqDto.Timestamp, respDto.Timestamp);
+                                    Assert.Equal(reqDto.NewsSourceID, respDto.NewsSourceID);
+                                    Assert.Equal(reqDto.Url, respDto.Url);
+                                    Assert.Equal(reqDto.NewsTime, respDto.NewsTime);
+                
                     respEntity = ArticleConvertor.Convert(respDto);
                 }
                 finally
@@ -183,21 +168,20 @@ namespace Test.E2E.API.Controllers.V1
         {
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
 
                 DMFX.NewsAnalysis.Interfaces.Entities.Article testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Title = "Title da71967226524d83aca3f9b49d483a21";
-                    testEntity.Content = "Content da71967226524d83aca3f9b49d483a21";
-                    testEntity.Timestamp = DateTime.Parse("11/14/2026 12:46:32 PM");
-                    testEntity.NewsSourceID = 2;
-
+                          testEntity.Title = "Title bda8ca490c924721b2b72aa5a9670918";
+                            testEntity.Content = "Content bda8ca490c924721b2b72aa5a9670918";
+                            testEntity.Timestamp = DateTime.Parse("5/6/2027 6:50:04 AM");
+                            testEntity.NewsSourceID = 7 ;
+                            testEntity.Url = "Url bda8ca490c924721b2b72aa5a9670918";
+                            testEntity.NewsTime = DateTime.Parse("9/23/2024 4:37:04 PM");
+              
                     var reqDto = ArticleConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -208,12 +192,14 @@ namespace Test.E2E.API.Controllers.V1
 
                     Article respDto = ExtractContentJson<Article>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.Title, respDto.Title);
-                    Assert.Equal(reqDto.Content, respDto.Content);
-                    Assert.Equal(reqDto.Timestamp, respDto.Timestamp);
-                    Assert.Equal(reqDto.NewsSourceID, respDto.NewsSourceID);
-
+                                     Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.Title, respDto.Title);
+                                    Assert.Equal(reqDto.Content, respDto.Content);
+                                    Assert.Equal(reqDto.Timestamp, respDto.Timestamp);
+                                    Assert.Equal(reqDto.NewsSourceID, respDto.NewsSourceID);
+                                    Assert.Equal(reqDto.Url, respDto.Url);
+                                    Assert.Equal(reqDto.NewsTime, respDto.NewsTime);
+                
                 }
                 finally
                 {
@@ -227,21 +213,21 @@ namespace Test.E2E.API.Controllers.V1
         {
             using (var client = _factory.CreateClient())
             {
-                if (!string.IsNullOrEmpty(_testParams.Settings["test_user_login"].ToString()))
-                {
-                    var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
-                }
+                var respLogin = Login((string)_testParams.Settings["test_user_login"], (string)_testParams.Settings["test_user_pwd"]);
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
 
                 DMFX.NewsAnalysis.Interfaces.Entities.Article testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ID = Int64.MaxValue;
-                    testEntity.Title = "Title da71967226524d83aca3f9b49d483a21";
-                    testEntity.Content = "Content da71967226524d83aca3f9b49d483a21";
-                    testEntity.Timestamp = DateTime.Parse("11/14/2026 12:46:32 PM");
-                    testEntity.NewsSourceID = 2;
-
+                             testEntity.ID = Int64.MaxValue;
+                             testEntity.Title = "Title bda8ca490c924721b2b72aa5a9670918";
+                            testEntity.Content = "Content bda8ca490c924721b2b72aa5a9670918";
+                            testEntity.Timestamp = DateTime.Parse("5/6/2027 6:50:04 AM");
+                            testEntity.NewsSourceID = 7;
+                            testEntity.Url = "Url bda8ca490c924721b2b72aa5a9670918";
+                            testEntity.NewsTime = DateTime.Parse("9/23/2024 4:37:04 PM");
+              
                     var reqDto = ArticleConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -264,7 +250,11 @@ namespace Test.E2E.API.Controllers.V1
             if (entity != null)
             {
                 var dal = CreateDal();
-                return dal.Delete(entity.ID);
+
+
+
+                return dal.Delete(                        entity.ID
+                );
             }
             else
             {
@@ -275,11 +265,13 @@ namespace Test.E2E.API.Controllers.V1
         protected DMFX.NewsAnalysis.Interfaces.Entities.Article CreateTestEntity()
         {
             var entity = new DMFX.NewsAnalysis.Interfaces.Entities.Article();
-            entity.Title = "Title a566c118b58b483fa805bcc458b48231";
-            entity.Content = "Content a566c118b58b483fa805bcc458b48231";
-            entity.Timestamp = DateTime.Parse("11/14/2026 12:46:32 PM");
-            entity.NewsSourceID = 2;
-
+                          entity.Title = "Title c404b2710eeb4b8ab0aef390d5f8553e";
+                            entity.Content = "Content c404b2710eeb4b8ab0aef390d5f8553e";
+                            entity.Timestamp = DateTime.Parse("6/26/2024 6:23:04 AM");
+                            entity.NewsSourceID = 1;
+                            entity.Url = "Url c404b2710eeb4b8ab0aef390d5f8553e";
+                            entity.NewsTime = DateTime.Parse("5/6/2027 6:50:04 AM");
+              
             return entity;
         }
 

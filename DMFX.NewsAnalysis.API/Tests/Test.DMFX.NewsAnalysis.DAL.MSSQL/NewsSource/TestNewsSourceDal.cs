@@ -54,8 +54,8 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name a2d1f8b6f455476895b89f13998e30e2", entity.Name);
-                            Assert.AreEqual("Url a2d1f8b6f455476895b89f13998e30e2", entity.Url);
+                          Assert.AreEqual("Name 10f4941efb4845c8baf87a9f75484503", entity.Name);
+                            Assert.AreEqual("Url 10f4941efb4845c8baf87a9f75484503", entity.Url);
                             Assert.AreEqual(true, entity.IsActive);
                       }
 
@@ -105,8 +105,8 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareNewsSourceDal("DALInitParams");
 
             var entity = new NewsSource();
-                          entity.Name = "Name 387f6143c36e42d69679036f873fc610";
-                            entity.Url = "Url 387f6143c36e42d69679036f873fc610";
+                          entity.Name = "Name f1c681a48101452c936bb9b35e8e5044";
+                            entity.Url = "Url f1c681a48101452c936bb9b35e8e5044";
                             entity.IsActive = true;              
                           
             entity = dal.Insert(entity);
@@ -116,8 +116,8 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 387f6143c36e42d69679036f873fc610", entity.Name);
-                            Assert.AreEqual("Url 387f6143c36e42d69679036f873fc610", entity.Url);
+                          Assert.AreEqual("Name f1c681a48101452c936bb9b35e8e5044", entity.Name);
+                            Assert.AreEqual("Url f1c681a48101452c936bb9b35e8e5044", entity.Url);
                             Assert.AreEqual(true, entity.IsActive);
               
         }
@@ -132,8 +132,8 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             NewsSource entity = dal.Get(paramID);
 
-                          entity.Name = "Name 969db972a797442388be46b2adeaaac6";
-                            entity.Url = "Url 969db972a797442388be46b2adeaaac6";
+                          entity.Name = "Name 046f4a58fbe04b688a7ce3c4f4c376ca";
+                            entity.Url = "Url 046f4a58fbe04b688a7ce3c4f4c376ca";
                             entity.IsActive = true;              
               
             entity = dal.Update(entity);
@@ -143,8 +143,8 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 969db972a797442388be46b2adeaaac6", entity.Name);
-                            Assert.AreEqual("Url 969db972a797442388be46b2adeaaac6", entity.Url);
+                          Assert.AreEqual("Name 046f4a58fbe04b688a7ce3c4f4c376ca", entity.Name);
+                            Assert.AreEqual("Url 046f4a58fbe04b688a7ce3c4f4c376ca", entity.Url);
                             Assert.AreEqual(true, entity.IsActive);
               
         }
@@ -155,8 +155,8 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareNewsSourceDal("DALInitParams");
 
             var entity = new NewsSource();
-                          entity.Name = "Name 969db972a797442388be46b2adeaaac6";
-                            entity.Url = "Url 969db972a797442388be46b2adeaaac6";
+                          entity.Name = "Name 046f4a58fbe04b688a7ce3c4f4c376ca";
+                            entity.Url = "Url 046f4a58fbe04b688a7ce3c4f4c376ca";
                             entity.IsActive = true;              
               
             try

@@ -20,6 +20,10 @@ namespace DMFX.NewsAnalysis.Interfaces.Entities
 
 				public System.Int64 NewsSourceID { get; set; }
 
+				public System.String Url { get; set; }
+
+				public System.DateTime NewsTime { get; set; }
+
 				
     }
 }

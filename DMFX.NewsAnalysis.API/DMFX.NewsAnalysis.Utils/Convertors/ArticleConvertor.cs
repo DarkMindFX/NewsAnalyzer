@@ -21,6 +21,10 @@ namespace DMFX.NewsAnalysis.Utils.Convertors
 
 				        NewsSourceID = entity.NewsSourceID,
 
+				        Url = entity.Url,
+
+				        NewsTime = entity.NewsTime,
+
 				
             };
 
@@ -49,6 +53,10 @@ namespace DMFX.NewsAnalysis.Utils.Convertors
 				        Timestamp = dto.Timestamp,
 
 				        NewsSourceID = dto.NewsSourceID,
+
+				        Url = dto.Url,
+
+				        NewsTime = dto.NewsTime,
 
 				
      

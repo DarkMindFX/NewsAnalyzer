@@ -54,7 +54,7 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 47aad278965f4dbaa558358e8acc9381", entity.Name);
+                          Assert.AreEqual("Name 99324813922846a78568adb493dc6538", entity.Name);
                       }
 
         [Test]
@@ -103,7 +103,7 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareSentimentTypeDal("DALInitParams");
 
             var entity = new SentimentType();
-                          entity.Name = "Name c805cbccbe5a44f6949a29d00d1fdff4";
+                          entity.Name = "Name 93058013a0954daeb9313d490a8c5f80";
                           
             entity = dal.Insert(entity);
 
@@ -112,7 +112,7 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name c805cbccbe5a44f6949a29d00d1fdff4", entity.Name);
+                          Assert.AreEqual("Name 93058013a0954daeb9313d490a8c5f80", entity.Name);
               
         }
 
@@ -126,7 +126,7 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             SentimentType entity = dal.Get(paramID);
 
-                          entity.Name = "Name d6b57a42d0664379a518a9ad7f1d8db5";
+                          entity.Name = "Name 45b5270f5b6c476e94b4ba58d88a239c";
               
             entity = dal.Update(entity);
 
@@ -135,7 +135,7 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name d6b57a42d0664379a518a9ad7f1d8db5", entity.Name);
+                          Assert.AreEqual("Name 45b5270f5b6c476e94b4ba58d88a239c", entity.Name);
               
         }
 
@@ -145,7 +145,7 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareSentimentTypeDal("DALInitParams");
 
             var entity = new SentimentType();
-                          entity.Name = "Name d6b57a42d0664379a518a9ad7f1d8db5";
+                          entity.Name = "Name 45b5270f5b6c476e94b4ba58d88a239c";
               
             try
             {

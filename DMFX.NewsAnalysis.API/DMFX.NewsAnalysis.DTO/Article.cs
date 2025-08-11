@@ -21,6 +21,12 @@ namespace DMFX.NewsAnalysis.DTO
 				[JsonPropertyName("NewsSourceID")]
 		public System.Int64 NewsSourceID { get; set; }
 
+				[JsonPropertyName("Url")]
+		public System.String Url { get; set; }
+
+				[JsonPropertyName("NewsTime")]
+		public System.DateTime NewsTime { get; set; }
+
 				
     }
 }

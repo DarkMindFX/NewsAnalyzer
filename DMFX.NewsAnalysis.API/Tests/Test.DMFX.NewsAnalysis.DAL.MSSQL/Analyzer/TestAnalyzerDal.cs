@@ -46,22 +46,22 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareAnalyzerDal("DALInitParams");
 
             IList<object> objIds = SetupCase(conn, caseName);
-            var paramID = (System.Int64?)objIds[0];
+                var paramID = (System.Int64?)objIds[0];
             Analyzer entity = dal.Get(paramID);
 
             TeardownCase(conn, caseName);
 
             Assert.IsNotNull(entity);
-            Assert.IsNotNull(entity.ID);
-
-            Assert.AreEqual("Name 8dd585ff9b0046ad988ebbd60d547877", entity.Name);
-            Assert.AreEqual(true, entity.IsActive);
-        }
+                        Assert.IsNotNull(entity.ID);
+            
+                          Assert.AreEqual("Name e054dbf73c584a90b80a3d64def5cdd7", entity.Name);
+                            Assert.AreEqual(true, entity.IsActive);
+                      }
 
         [Test]
         public void Analyzer_GetDetails_InvalidId()
         {
-            var paramID = Int64.MaxValue - 1;
+                var paramID = Int64.MaxValue - 1;
             var dal = PrepareAnalyzerDal("DALInitParams");
 
             Analyzer entity = dal.Get(paramID);
@@ -76,7 +76,7 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareAnalyzerDal("DALInitParams");
 
             IList<object> objIds = SetupCase(conn, caseName);
-            var paramID = (System.Int64?)objIds[0];
+                var paramID = (System.Int64?)objIds[0];
             bool removed = dal.Delete(paramID);
 
             TeardownCase(conn, caseName);
@@ -88,8 +88,8 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
         public void Analyzer_Delete_InvalidId()
         {
             var dal = PrepareAnalyzerDal("DALInitParams");
-            var paramID = Int64.MaxValue - 1;
-
+                var paramID = Int64.MaxValue - 1;
+   
             bool removed = dal.Delete(paramID);
             Assert.IsFalse(removed);
 
@@ -104,19 +104,19 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareAnalyzerDal("DALInitParams");
 
             var entity = new Analyzer();
-            entity.Name = "Name 0f701d3ba0e34517bdde76a141ddfa71";
-            entity.IsActive = true;
-
+                          entity.Name = "Name b384a32ba71245d1b1cfbeb9cb2c01b2";
+                            entity.IsActive = true;              
+                          
             entity = dal.Insert(entity);
 
             TeardownCase(conn, caseName);
 
             Assert.IsNotNull(entity);
-            Assert.IsNotNull(entity.ID);
-
-            Assert.AreEqual("Name 0f701d3ba0e34517bdde76a141ddfa71", entity.Name);
-            Assert.AreEqual(true, entity.IsActive);
-
+                        Assert.IsNotNull(entity.ID);
+            
+                          Assert.AreEqual("Name b384a32ba71245d1b1cfbeb9cb2c01b2", entity.Name);
+                            Assert.AreEqual(true, entity.IsActive);
+              
         }
 
         [TestCase("Analyzer\\030.Update.Success")]
@@ -126,22 +126,22 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareAnalyzerDal("DALInitParams");
 
             IList<object> objIds = SetupCase(conn, caseName);
-            var paramID = (System.Int64?)objIds[0];
+                var paramID = (System.Int64?)objIds[0];
             Analyzer entity = dal.Get(paramID);
 
-            entity.Name = "Name 5ee0c46faee34c3cbc9d648289d7159a";
-            entity.IsActive = true;
-
+                          entity.Name = "Name 6dcd350f08ef485396c1a1256ed3ff76";
+                            entity.IsActive = true;              
+              
             entity = dal.Update(entity);
 
             TeardownCase(conn, caseName);
 
             Assert.IsNotNull(entity);
-            Assert.IsNotNull(entity.ID);
-
-            Assert.AreEqual("Name 5ee0c46faee34c3cbc9d648289d7159a", entity.Name);
-            Assert.AreEqual(true, entity.IsActive);
-
+                        Assert.IsNotNull(entity.ID);
+            
+                          Assert.AreEqual("Name 6dcd350f08ef485396c1a1256ed3ff76", entity.Name);
+                            Assert.AreEqual(true, entity.IsActive);
+              
         }
 
         [Test]
@@ -150,9 +150,9 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareAnalyzerDal("DALInitParams");
 
             var entity = new Analyzer();
-            entity.Name = "Name 5ee0c46faee34c3cbc9d648289d7159a";
-            entity.IsActive = true;
-
+                          entity.Name = "Name 6dcd350f08ef485396c1a1256ed3ff76";
+                            entity.IsActive = true;              
+              
             try
             {
                 entity = dal.Update(entity);

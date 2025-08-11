@@ -3,18 +3,18 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @Timestamp DATETIME = '3/18/2025 11:31:32 PM'
-DECLARE @ArticleID BIGINT = 21
-DECLARE @SentimentID BIGINT = 7
-DECLARE @AnalyzerID BIGINT = 1
+DECLARE @Timestamp DATETIME = '12/21/2027 5:58:04 AM'
+DECLARE @ArticleID BIGINT = 35
+DECLARE @SentimentID BIGINT = 8
+DECLARE @AnalyzerID BIGINT = 9
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updTimestamp DATETIME = '1/28/2028 9:18:32 AM'
-DECLARE @updArticleID BIGINT = 24
-DECLARE @updSentimentID BIGINT = 5
-DECLARE @updAnalyzerID BIGINT = 5
+DECLARE @updTimestamp DATETIME = '5/9/2025 6:25:04 AM'
+DECLARE @updArticleID BIGINT = 35
+DECLARE @updSentimentID BIGINT = 1
+DECLARE @updAnalyzerID BIGINT = 3
  
 
 DECLARE @Fail AS BIT = 0

@@ -7,6 +7,8 @@ CREATE TABLE [dbo].[Article]
 	[Timestamp]	DATETIME NOT NULL DEFAULT GETDATE(),
 	[NewsSourceID]	BIGINT NOT NULL,
 
-	CONSTRAINT [FK_Articale_NewsSource] FOREIGN KEY ([NewsSourceID]) REFERENCES [dbo].[NewsSource]([ID])
+	[Url] NVARCHAR(512) NOT NULL, 
+    [NewsTime] DATETIME NOT NULL, 
+    CONSTRAINT [FK_Articale_NewsSource] FOREIGN KEY ([NewsSourceID]) REFERENCES [dbo].[NewsSource]([ID])
 
 )

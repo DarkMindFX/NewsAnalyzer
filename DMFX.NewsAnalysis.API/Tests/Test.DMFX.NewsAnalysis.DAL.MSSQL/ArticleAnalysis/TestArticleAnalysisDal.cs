@@ -54,10 +54,10 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(DateTime.Parse("2/2/2027 9:43:32 PM"), entity.Timestamp);
-                            Assert.AreEqual(39, entity.ArticleID);
-                            Assert.AreEqual(5, entity.SentimentID);
-                            Assert.AreEqual(4, entity.AnalyzerID);
+                          Assert.AreEqual(DateTime.Parse("8/12/2024 2:24:04 PM"), entity.Timestamp);
+                            Assert.AreEqual(9, entity.ArticleID);
+                            Assert.AreEqual(10, entity.SentimentID);
+                            Assert.AreEqual(1, entity.AnalyzerID);
                       }
 
         [Test]
@@ -106,10 +106,10 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareArticleAnalysisDal("DALInitParams");
 
             var entity = new ArticleAnalysis();
-                          entity.Timestamp = DateTime.Parse("10/29/2027 1:44:32 PM");
-                            entity.ArticleID = 13;
-                            entity.SentimentID = 5;
-                            entity.AnalyzerID = 2;
+                          entity.Timestamp = DateTime.Parse("12/21/2027 5:58:04 AM");
+                            entity.ArticleID = 18;
+                            entity.SentimentID = 4;
+                            entity.AnalyzerID = 8;
                           
             entity = dal.Insert(entity);
 
@@ -118,10 +118,10 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(DateTime.Parse("10/29/2027 1:44:32 PM"), entity.Timestamp);
-                            Assert.AreEqual(13, entity.ArticleID);
-                            Assert.AreEqual(5, entity.SentimentID);
-                            Assert.AreEqual(2, entity.AnalyzerID);
+                          Assert.AreEqual(DateTime.Parse("12/21/2027 5:58:04 AM"), entity.Timestamp);
+                            Assert.AreEqual(18, entity.ArticleID);
+                            Assert.AreEqual(4, entity.SentimentID);
+                            Assert.AreEqual(8, entity.AnalyzerID);
               
         }
 
@@ -135,10 +135,10 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             ArticleAnalysis entity = dal.Get(paramID);
 
-                          entity.Timestamp = DateTime.Parse("1/28/2028 9:18:32 AM");
-                            entity.ArticleID = 24;
-                            entity.SentimentID = 5;
-                            entity.AnalyzerID = 5;
+                          entity.Timestamp = DateTime.Parse("5/9/2025 6:25:04 AM");
+                            entity.ArticleID = 35;
+                            entity.SentimentID = 1;
+                            entity.AnalyzerID = 3;
               
             entity = dal.Update(entity);
 
@@ -147,10 +147,10 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(DateTime.Parse("1/28/2028 9:18:32 AM"), entity.Timestamp);
-                            Assert.AreEqual(24, entity.ArticleID);
-                            Assert.AreEqual(5, entity.SentimentID);
-                            Assert.AreEqual(5, entity.AnalyzerID);
+                          Assert.AreEqual(DateTime.Parse("5/9/2025 6:25:04 AM"), entity.Timestamp);
+                            Assert.AreEqual(35, entity.ArticleID);
+                            Assert.AreEqual(1, entity.SentimentID);
+                            Assert.AreEqual(3, entity.AnalyzerID);
               
         }
 
@@ -160,10 +160,10 @@ namespace DMFX.NewsAnalysis.Test.DAL.MSSQL
             var dal = PrepareArticleAnalysisDal("DALInitParams");
 
             var entity = new ArticleAnalysis();
-                          entity.Timestamp = DateTime.Parse("1/28/2028 9:18:32 AM");
-                            entity.ArticleID = 24;
-                            entity.SentimentID = 5;
-                            entity.AnalyzerID = 5;
+                          entity.Timestamp = DateTime.Parse("5/9/2025 6:25:04 AM");
+                            entity.ArticleID = 35;
+                            entity.SentimentID = 1;
+                            entity.AnalyzerID = 3;
               
             try
             {

@@ -3,15 +3,15 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @Name NVARCHAR(255) = 'Name 43440f5ce8064bfaa4dd6466fdbcb01d'
-DECLARE @Url NVARCHAR(255) = 'Url 43440f5ce8064bfaa4dd6466fdbcb01d'
+DECLARE @Name NVARCHAR(255) = 'Name 254ab7a6c3b04ebd884df6ccaa92b462'
+DECLARE @Url NVARCHAR(255) = 'Url 254ab7a6c3b04ebd884df6ccaa92b462'
 DECLARE @IsActive BIT = 1
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updName NVARCHAR(255) = 'Name 969db972a797442388be46b2adeaaac6'
-DECLARE @updUrl NVARCHAR(255) = 'Url 969db972a797442388be46b2adeaaac6'
+DECLARE @updName NVARCHAR(255) = 'Name 046f4a58fbe04b688a7ce3c4f4c376ca'
+DECLARE @updUrl NVARCHAR(255) = 'Url 046f4a58fbe04b688a7ce3c4f4c376ca'
 DECLARE @updIsActive BIT = 1
  
 

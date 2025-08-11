@@ -2,10 +2,12 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @Title NVARCHAR(255) = 'Title eee2d5a03ab44af38ba23b396ae0cfcb'
-DECLARE @Content NVARCHAR(4000) = 'Content eee2d5a03ab44af38ba23b396ae0cfcb'
-DECLARE @Timestamp DATETIME = '4/1/2023 9:42:32 AM'
-DECLARE @NewsSourceID BIGINT = 9
+DECLARE @Title NVARCHAR(255) = 'Title 086d574f65f842c4831aeb20e8d637fb'
+DECLARE @Content NVARCHAR(4000) = 'Content 086d574f65f842c4831aeb20e8d637fb'
+DECLARE @Timestamp DATETIME = '1/1/2026 6:48:04 AM'
+DECLARE @NewsSourceID BIGINT = 2
+DECLARE @Url NVARCHAR(512) = 'Url 086d574f65f842c4831aeb20e8d637fb'
+DECLARE @NewsTime DATETIME = '8/21/2023 12:09:04 PM'
  
 
 
@@ -15,7 +17,9 @@ IF(NOT EXISTS(SELECT 1 FROM
 	(CASE WHEN @Title IS NOT NULL THEN (CASE WHEN [Title] = @Title THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
 	(CASE WHEN @Content IS NOT NULL THEN (CASE WHEN [Content] = @Content THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
 	(CASE WHEN @Timestamp IS NOT NULL THEN (CASE WHEN [Timestamp] = @Timestamp THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
-	(CASE WHEN @NewsSourceID IS NOT NULL THEN (CASE WHEN [NewsSourceID] = @NewsSourceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+	(CASE WHEN @NewsSourceID IS NOT NULL THEN (CASE WHEN [NewsSourceID] = @NewsSourceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Url IS NOT NULL THEN (CASE WHEN [Url] = @Url THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @NewsTime IS NOT NULL THEN (CASE WHEN [NewsTime] = @NewsTime THEN 1 ELSE 0 END) ELSE 1 END) = 1 
  ))
 					
 BEGIN
@@ -24,13 +28,17 @@ BEGIN
 	 [Title],
 	 [Content],
 	 [Timestamp],
-	 [NewsSourceID]
+	 [NewsSourceID],
+	 [Url],
+	 [NewsTime]
 		)
 	SELECT 		
 			 @Title,
 	 @Content,
 	 @Timestamp,
-	 @NewsSourceID
+	 @NewsSourceID,
+	 @Url,
+	 @NewsTime
 END
 
 SELECT TOP 1 
@@ -41,7 +49,9 @@ WHERE
 	(CASE WHEN @Title IS NOT NULL THEN (CASE WHEN [Title] = @Title THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
 	(CASE WHEN @Content IS NOT NULL THEN (CASE WHEN [Content] = @Content THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
 	(CASE WHEN @Timestamp IS NOT NULL THEN (CASE WHEN [Timestamp] = @Timestamp THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
-	(CASE WHEN @NewsSourceID IS NOT NULL THEN (CASE WHEN [NewsSourceID] = @NewsSourceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+	(CASE WHEN @NewsSourceID IS NOT NULL THEN (CASE WHEN [NewsSourceID] = @NewsSourceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Url IS NOT NULL THEN (CASE WHEN [Url] = @Url THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @NewsTime IS NOT NULL THEN (CASE WHEN [NewsTime] = @NewsTime THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 
 SELECT 
 	@ID
