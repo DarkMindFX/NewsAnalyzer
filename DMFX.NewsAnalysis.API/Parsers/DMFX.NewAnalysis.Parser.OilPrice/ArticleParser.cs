@@ -1,6 +1,7 @@
 ﻿using DMFX.NewsAnalysis.Interfaces.Entities;
 using DMFX.NewsAnalysis.Parser.Common;
 using DMFX.NewsAnalysis.Parser.OilPrice;
+using HtmlAgilityPack;
 using System.ComponentModel.Composition;
 using System.Xml;
 
@@ -17,7 +18,7 @@ namespace DMFX.NewAnalysis.Parser.OilPrice
             {
                 Title = json.Headline,
                 Content = json.ArticleBody,
-                Timestamp = json.DatePublished,
+                Timestamp = DateTime.Now,
                 Url = json.URL,
                 NewsTime = json.DateModified
             };
@@ -29,10 +30,10 @@ namespace DMFX.NewAnalysis.Parser.OilPrice
         #region Support methods
         private ArticleContentJson ExtractJson(string rawContent)
         {
-            var doc = new XmlDocument();
-            doc.LoadXml(rawContent);
+            var doc = new HtmlDocument();
+            doc.LoadHtml(rawContent);
 
-            var root = doc.DocumentElement;
+            var root = doc.DocumentNode;
             if (root != null)
             {
                 var node = root.SelectSingleNode("//script[@type='application/ld+json']");

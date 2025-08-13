@@ -55,10 +55,10 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
             public string Url { get; set; }
 
             [JsonPropertyName("width")]
-            public int Width { get; set; }
+            public string Width { get; set; }
 
             [JsonPropertyName("height")]
-            public int Height { get; set; }
+            public string Height { get; set; }
 
         }
 
@@ -108,7 +108,7 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
         public DateTime DateCreated { get; set; }
 
         [JsonPropertyName("wordCount")]
-        public int WordCount { get; set; }
+        public string WordCount { get; set; }
 
         [JsonPropertyName("inLanguage")]
         public string LnLanguage { get; set; }
@@ -126,7 +126,10 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
         public string Headline { get; set; }
 
         [JsonPropertyName("about")]
-        public AboutJson About { get; set; }
+        public List<AboutJson> About { get; set; }
+
+        [JsonPropertyName("mainEntityOfPage")]
+        public string mainEntityOfPage { get; set; }
 
         [JsonPropertyName("image")]
         public List<string> image { get; set; }
