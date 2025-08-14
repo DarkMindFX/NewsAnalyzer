@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "DMFX.NewsAnalysis.API.SourcesCrawler": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7030",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ServiceConfig__DalInitParams__ConnectionString": "Data Source=localhost; Initial Catalog=NewsAnalysisDB; Encrypt=False; Integrated Security=True;",
+        "ServiceConfig__DALType": "MSSQL"
+      }
+
+    }
+  }
+}
