@@ -20,6 +20,11 @@ namespace DMFX.NewsAnalysis.Functions.Common
             this.PrepareComposition();
         }
 
+        public void Configure()
+        {
+            this.PrepareComposition();
+        }
+
         public CompositionContainer Container
         {
             get;
@@ -46,11 +51,33 @@ namespace DMFX.NewsAnalysis.Functions.Common
         private void PrepareComposition()
         {
             AggregateCatalog catalog = new AggregateCatalog();
-            DirectoryCatalog directoryCatalog = new DirectoryCatalog(AssemblyDirectory);
-            catalog.Catalogs.Add(directoryCatalog);
+            var pluginsRoot = PluginsDirectory;
+
+            if (Directory.Exists(pluginsRoot))
+            {
+                var dirs = Directory.GetDirectories(pluginsRoot);
+                foreach (var pluginDir in dirs)
+                {
+                    DirectoryCatalog directoryCatalog = new DirectoryCatalog(pluginDir);
+                    catalog.Catalogs.Add(directoryCatalog);
+                }
+            }
+
             Container = new CompositionContainer(catalog);
             Container.ComposeParts(this);
         }
+
+        private string PluginsDirectory
+        {
+            get
+            {
+                string codeBase = Assembly.GetExecutingAssembly().Location;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                return Path.Combine(Path.GetDirectoryName(path), "Plugins");
+            }
+        }
+
 
         private string AssemblyDirectory
         {

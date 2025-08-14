@@ -18,7 +18,7 @@ namespace DMFX.NewsAnalysis.Interfaces
         bool Delete(System.Int64? ID);
 
         IList<Article> GetByNewsSourceID(System.Int64 NewsSourceID);
-        
-            }
+
+    }
 }
 

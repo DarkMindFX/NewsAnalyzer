@@ -3,7 +3,12 @@
     "DMFX.NewsAnalysis.Function.ArticleParser": {
       "commandName": "Project",
       "commandLineArgs": "--port 7135",
-      "launchBrowser": false
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ServiceConfig__DalInitParams__ConnectionString": "Data Source=localhost; Initial Catalog=NewsAnalysisDB; Encrypt=False; Integrated Security=True;",
+        "ServiceConfig__DALType": "MSSQL"
+      }
+
     }
   }
 }

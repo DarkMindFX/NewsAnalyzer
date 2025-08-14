@@ -20,11 +20,6 @@
     <ProjectReference Include="..\..\DMFX.NewsAnalysis.DTO\DMFX.NewsAnalysis.DTO.csproj" />
     <ProjectReference Include="..\..\DMFX.NewsAnalysis.Services.DAL\DMFX.NewsAnalysis.Services.DAL.csproj" />
     <ProjectReference Include="..\..\DMFX.NewsAnalysis.Utils\DMFX.NewsAnalysis.Utils.csproj" />
-    <ProjectReference Include="..\..\Functions\DMFX.NewsAnalysis.Function.Analyzer\DMFX.NewsAnalysis.Function.Analyzer.csproj" />
-    <ProjectReference Include="..\..\Functions\DMFX.NewsAnalysis.Function.ArticleAnalysis\DMFX.NewsAnalysis.Function.ArticleAnalysis.csproj" />
-    <ProjectReference Include="..\..\Functions\DMFX.NewsAnalysis.Function.Article\DMFX.NewsAnalysis.Function.Article.csproj" />
-    <ProjectReference Include="..\..\Functions\DMFX.NewsAnalysis.Function.NewsSource\DMFX.NewsAnalysis.Function.NewsSource.csproj" />
-    <ProjectReference Include="..\..\Functions\DMFX.NewsAnalysis.Function.SentimentType\DMFX.NewsAnalysis.Function.SentimentType.csproj" />
     <ProjectReference Include="..\..\Functions\DMFX.NewsAnalysis.Functions.Common\DMFX.NewsAnalysis.Functions.Common.csproj" />
     <ProjectReference Include="..\Test.Functions.Common\Test.Functions.Common.csproj" />
   </ItemGroup>

@@ -1,10 +1,16 @@
-using System;
+using Azure.Core;
 using Azure.Storage.Queues.Models;
 using DMFX.NewsAnalysis.Functions.DTO;
 using DMFX.NewsAnalysis.Interfaces;
+using DMFX.NewsAnalysis.Interfaces.Entities;
+using DMFX.NewsAnalysis.Parser.Common;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
+using System;
+using System.ComponentModel.Composition.Hosting;
+using System.Net;
 using System.Text.Json;
+using static Grpc.Core.Metadata;
 
 namespace DMFX.NewsAnalysis.Function.ArticleParser;
 
@@ -14,12 +20,18 @@ public class ArticleParserFn
 
     private readonly ILogger<ArticleParserFn> _logger;
     private readonly IArticleDal _articlaDal;
+    private readonly INewsSourceDal _newsSourceDal;
+    private readonly ExportProvider _exortProvder;
 
-    public ArticleParserFn( ILogger<ArticleParserFn> logger,
-                            IArticleDal articleDal)
+    public ArticleParserFn(ILogger<ArticleParserFn> logger,
+                            IArticleDal articleDal,
+                            INewsSourceDal newsSourceDal,
+                            ExportProvider exortProvder)
     {
         _logger = logger;
         _articlaDal = articleDal;
+        _newsSourceDal = newsSourceDal;
+        _exortProvder = exortProvder;
     }
 
     [Function(nameof(ArticleParserFn))]
@@ -31,6 +43,51 @@ public class ArticleParserFn
 
         ValidateRequest(request);
 
+        using (var webClient = new WebClient())
+        {
+            var content = webClient.DownloadString(request.URL);
+            if (!string.IsNullOrEmpty(content))
+            {
+                var article = Parse(content, request.Source);
+                var entity = _articlaDal.Insert(article);
+                _logger.LogInformation($"Article successfully parsed and saved with ID: {entity.ID}");
+            }
+            else
+            {
+                string errorMessage = $"Failed to load content from {request.URL} - null or empty string returned";
+                _logger.LogInformation(errorMessage);
+                throw new ApplicationException(errorMessage);
+            }
+        }
+
+
+    }
+
+    private Article Parse(string content, string sourceName)
+    {
+        var parser = _exortProvder.GetExportedValue<IArticleParser>(sourceName);
+        if (parser != null)
+        {
+            var article = parser.Parse(content);
+            var newsSourceID = _newsSourceDal.GetAll()
+                .FirstOrDefault(x => x.Name.Equals(sourceName, StringComparison.OrdinalIgnoreCase))?.ID;
+
+            if (newsSourceID != null)
+            {
+                article.NewsSourceID = newsSourceID.Value;
+            }
+            else
+            {
+                throw new ArgumentException($"No news source found for name: {sourceName}");
+            }
+
+            return article;
+        }
+
+        else
+        {
+            throw new ArgumentException($"No parser found for source: {sourceName}");
+        }
     }
 
     private void ValidateRequest(NewArticleDto request)
@@ -40,7 +97,7 @@ public class ArticleParserFn
             throw new ArgumentNullException(nameof(request), "Request cannot be null.");
         }
 
-        if(request.Header == null)
+        if (request.Header == null)
         {
             throw new ArgumentNullException(nameof(request), "Invalid request: Header cannot be null.");
         }

@@ -5,6 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.12.2" />
@@ -14,5 +18,9 @@
   <ItemGroup>
     <ProjectReference Include="..\DMFX.NewAnalysis.Parser.Common\DMFX.NewsAnalysis.Parser.Common.csproj" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Plugins\$(MSBuildProjectName)\&quot; /K /D /H /Y" />
+  </Target>
 
 </Project>

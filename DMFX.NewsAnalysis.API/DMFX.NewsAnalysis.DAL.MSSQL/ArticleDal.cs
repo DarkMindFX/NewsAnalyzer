@@ -1,6 +1,4 @@
 
-
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -113,6 +111,8 @@ namespace DMFX.NewsAnalysis.DAL.MSSQL
                 SqlParameter pContent = new SqlParameter("@Content", System.Data.SqlDbType.NVarChar, 4000, ParameterDirection.Input, false, 0, 0, "Content", DataRowVersion.Current, (object)entity.Content != null ? (object)entity.Content : DBNull.Value);   cmd.Parameters.Add(pContent); 
                 SqlParameter pTimestamp = new SqlParameter("@Timestamp", System.Data.SqlDbType.DateTime, 0, ParameterDirection.Input, false, 0, 0, "Timestamp", DataRowVersion.Current, (object)entity.Timestamp != null ? (object)entity.Timestamp : DBNull.Value);   cmd.Parameters.Add(pTimestamp); 
                 SqlParameter pNewsSourceID = new SqlParameter("@NewsSourceID", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "NewsSourceID", DataRowVersion.Current, (object)entity.NewsSourceID != null ? (object)entity.NewsSourceID : DBNull.Value);   cmd.Parameters.Add(pNewsSourceID); 
+                SqlParameter pUrl = new SqlParameter("@Url", System.Data.SqlDbType.NVarChar, 512, ParameterDirection.Input, false, 0, 0, "Url", DataRowVersion.Current, (object)entity.Url != null ? (object)entity.Url : DBNull.Value);   cmd.Parameters.Add(pUrl); 
+                SqlParameter pNewsTime = new SqlParameter("@NewsTime", System.Data.SqlDbType.DateTime, 0, ParameterDirection.Input, false, 0, 0, "NewsTime", DataRowVersion.Current, (object)entity.NewsTime != null ? (object)entity.NewsTime : DBNull.Value);   cmd.Parameters.Add(pNewsTime); 
         
             return cmd;
         }
@@ -126,6 +126,8 @@ namespace DMFX.NewsAnalysis.DAL.MSSQL
                     entity.Content = !DBNull.Value.Equals(row["Content"]) ? (System.String)row["Content"] : default(System.String);
                     entity.Timestamp = !DBNull.Value.Equals(row["Timestamp"]) ? (System.DateTime)row["Timestamp"] : default(System.DateTime);
                     entity.NewsSourceID = !DBNull.Value.Equals(row["NewsSourceID"]) ? (System.Int64)row["NewsSourceID"] : default(System.Int64);
+                    entity.Url = !DBNull.Value.Equals(row["Url"]) ? (System.String)row["Url"] : default(System.String);
+                    entity.NewsTime = !DBNull.Value.Equals(row["NewsTime"]) ? (System.DateTime)row["NewsTime"] : default(System.DateTime);
         
             return entity;
         }

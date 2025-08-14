@@ -43,5 +43,8 @@
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if not exist &quot;$(TargetDir)Plugins&quot; mkdir &quot;$(TargetDir)Plugins&quot;&#xD;&#xA;xcopy &quot;$(SolutionDir)Plugins\DMFX.NewsAnalysis.DAL.MSSQL&quot; &quot;$(TargetDir)Plugins\DMFX.NewsAnalysis.DAL.MSSQL&quot; /Y /E /H /C /I" />
+  </Target>
 </Project>
 
