@@ -35,7 +35,8 @@ public class ArticleParserFn
     }
 
     [Function(nameof(ArticleParserFn))]
-    public void Run([QueueTrigger(INPUT_QEUEUE, Connection = "AzureWebJobsStorage")] string message)
+    [QueueOutput("dmfx-newsanalysis-articles-parsed", Connection = "AzureWebJobsStorage")]
+    public ArticleParsedDto Run([QueueTrigger(INPUT_QEUEUE, Connection = "AzureWebJobsStorage")] string message)
     {
         _logger.LogInformation($"Start processing message:\r\n {message}");
 
@@ -51,6 +52,10 @@ public class ArticleParserFn
                 var article = Parse(content, request.Source);
                 var entity = _articlaDal.Insert(article);
                 _logger.LogInformation($"Article successfully parsed and saved with ID: {entity.ID}");
+
+                var articleParsedDto = PrepareDto(newEntity: entity);
+
+                return articleParsedDto;
             }
             else
             {
@@ -60,6 +65,22 @@ public class ArticleParserFn
             }
         }
 
+
+    }
+
+    private ArticleParsedDto PrepareDto(Article newEntity)
+    {
+        var articleParsedDto = new ArticleParsedDto()
+        {
+            Header = new MessageHeader()
+            {
+                Sender = nameof(ArticleParserFn),
+                Timestamp = DateTime.UtcNow
+            },
+            ArticleID = (long)newEntity.ID
+        };
+
+        return articleParsedDto;
 
     }
 
