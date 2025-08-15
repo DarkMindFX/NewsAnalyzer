@@ -13,7 +13,7 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
     [Export("OilPrice.com", typeof(ISourceCrawler))]
     public class SourceCrawler : ISourceCrawler
     {
-        private readonly string _paginationUrl = "https://oilprice.com/Energy/Energy-News/Page-{0}.html";
+        private readonly string _paginationUrl = "https://oilprice.com/Latest-Energy-News/World-News/Page-{0}.html";
 
         public string SourceName => "OilPrice.com";
 

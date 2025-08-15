@@ -1,11 +1,11 @@
-﻿using DMFX.NewAnalysis.Parser.OilPrice;
-using DMFX.NewsAnalysis.Interfaces.Entities;
+﻿using DMFX.NewsAnalysis.Interfaces.Entities;
 using DMFX.NewsAnalysis.Parser.OilPrice;
 using NUnit.Framework;
 using System.Text.Json.Serialization;
 
-namespace Test.DMFX.NewsAnalysis.Parsers
+namespace DMFX.NewsAnalysis.Parsers.Test
 {
+
     public class TestOilPriceArticleParser
     {
         class TestCaseSetup
@@ -19,6 +19,7 @@ namespace Test.DMFX.NewsAnalysis.Parsers
                 get; set;
             }
         }
+
         [SetUp]
         public void Setup()
         {
@@ -42,7 +43,7 @@ namespace Test.DMFX.NewsAnalysis.Parsers
             // Arrange
             var parser = new ArticleParser();
             var caseSetup = LoadTestCaseSetup(caseName);
-            var content = File.ReadAllText( Path.Combine(TestBaseFolder, "OilPrice", caseSetup.SourceFile) );
+            var content = File.ReadAllText(Path.Combine(TestBaseFolder, "OilPrice", caseSetup.SourceFile));
             // Act
             var article = parser.Parse(content);
             // Assert

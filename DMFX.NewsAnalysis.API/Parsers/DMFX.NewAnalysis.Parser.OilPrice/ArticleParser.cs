@@ -5,7 +5,7 @@ using HtmlAgilityPack;
 using System.ComponentModel.Composition;
 using System.Xml;
 
-namespace DMFX.NewAnalysis.Parser.OilPrice
+namespace DMFX.NewsAnalysis.Parser.OilPrice
 {
     [Export("OilPrice.com", typeof(IArticleParser))]
     public class ArticleParser : IArticleParser
@@ -24,7 +24,6 @@ namespace DMFX.NewAnalysis.Parser.OilPrice
             };
 
             return article;
-
         }
 
         #region Support methods
