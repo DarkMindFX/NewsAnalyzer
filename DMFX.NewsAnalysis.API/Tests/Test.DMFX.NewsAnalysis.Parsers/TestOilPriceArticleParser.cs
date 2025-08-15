@@ -2,12 +2,14 @@
 using DMFX.NewsAnalysis.Parser.OilPrice;
 using NUnit.Framework;
 using System.Text.Json.Serialization;
+using Test.DMFX.NewsAnalysis.DAL.MSSQL;
 
 namespace DMFX.NewsAnalysis.Parsers.Test
 {
 
-    public class TestOilPriceArticleParser
+    public class TestOilPriceArticleParser : TestBase
     {
+        #region Test Classes
         class TestCaseSetup
         {
             [JsonPropertyName("SourceFile")]
@@ -19,6 +21,8 @@ namespace DMFX.NewsAnalysis.Parsers.Test
                 get; set;
             }
         }
+
+        #endregion
 
         [SetUp]
         public void Setup()
@@ -62,14 +66,6 @@ namespace DMFX.NewsAnalysis.Parsers.Test
             var json = System.Text.Json.JsonSerializer.Deserialize<TestCaseSetup>(content);
 
             return json;
-        }
-
-        protected string TestBaseFolder
-        {
-            get
-            {
-                return Path.Combine(TestContext.CurrentContext.TestDirectory, "..\\..\\..");
-            }
         }
 
     }

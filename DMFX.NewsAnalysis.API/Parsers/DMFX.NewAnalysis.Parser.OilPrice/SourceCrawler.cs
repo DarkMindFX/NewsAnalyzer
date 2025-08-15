@@ -19,20 +19,20 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
 
         public event OnArticleAvailableHandler OnArticleAvailable;
 
-        public void StartCrawling(SourceCrawlerParams crawlerParams)
+        public int StartCrawling(SourceCrawlerParams crawlerParams)
         {
-            var doc = new HtmlDocument();
-            doc.LoadHtml(string.Format(_paginationUrl, 1));
+            HtmlWeb web = new HtmlWeb();
+            int totalArticlesFound = 0;
 
-            int numPages = GetPageCount(doc);
-            int currentPage = 1;
-            do
+            while (crawlerParams.Paginator.HasNextPage)
             {
+                var page = crawlerParams.Paginator.GetNextPageUrl();
+                var doc = web.Load(page);
                 // finding all news
                 var root = doc.DocumentNode;
                 if (root != null)
                 {
-                    var nodes = root.SelectNodes("//div[class='categoryArticle__content']");
+                    var nodes = root.SelectNodes("//div[@class='categoryArticle__content']");
                     foreach (var node in nodes)
                     {
                         string url = string.Empty;
@@ -55,45 +55,31 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
                                 };
                                 // raising event
                                 OnArticleAvailable?.Invoke(this, articleDetails);
+                                ++totalArticlesFound;
                             }
 
                         }
                     }
 
-                    // moving to next page
-                    ++currentPage;
-                    doc.LoadHtml(string.Format(_paginationUrl, currentPage));
                 }
-
             }
-            while (currentPage <= numPages);
+
+            return totalArticlesFound;
         }
 
         #region Support methods
-        protected int GetPageCount(HtmlDocument doc)
-        {
-            int numPages = 0;
-            var root = doc.DocumentNode;
-            if (root != null)
-            {
-                var node = root.SelectSingleNode("//span[class='num_pages']");
-                if (node != null)
-                {
-                    string innerText = node.InnerText.Trim().TrimStart('/');
-                    Int32.TryParse(innerText, out numPages);
-                }
-            }
-
-            return numPages;
-        }
 
         protected DateTime GetArticleDatetime(HtmlNode node)
         {
             DateTime result = DateTime.MinValue;
-            var dateNode = node.SelectSingleNode(".//span[@class='categoryArticle__meta']");
+            var dateNode = node.SelectSingleNode(".//p[@class='categoryArticle__meta']");
             if (dateNode != null)
             {
-                string dateText = dateNode.InnerText.Trim().Replace("at ", string.Empty);
+                string dateText = dateNode.InnerText
+                                    .Substring(0, dateNode.InnerText.IndexOf("|"))
+                                    .Trim()
+                                    .Replace("at ", string.Empty);
+
                 DateTime.TryParse(dateText, out result);
             }
             return result;
@@ -101,7 +87,7 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
 
         protected string GetArticleUrl(HtmlNode node)
         {
-            var aHref = node.SelectSingleNode("/a");
+            var aHref = node.SelectSingleNode("a");
             if (aHref != null)
             {
                 return aHref.GetAttributeValue("href", string.Empty);

@@ -10,7 +10,7 @@ namespace DMFX.NewsAnalysis.Parser.Common
     {
         public DateTime?    StartDate { get; set; }
         public DateTime?    EndDate { get; set; }
-        public bool         SkipExisting { get; set; }
+        public ISourcePaginator Paginator { get; set; }
     }
 
     public interface ISourceCrawler
@@ -19,7 +19,7 @@ namespace DMFX.NewsAnalysis.Parser.Common
 
         public event OnArticleAvailableHandler OnArticleAvailable;
         
-        void StartCrawling(SourceCrawlerParams crawlerParams);
+        int StartCrawling(SourceCrawlerParams crawlerParams);
 
         string SourceName { get; }
     }

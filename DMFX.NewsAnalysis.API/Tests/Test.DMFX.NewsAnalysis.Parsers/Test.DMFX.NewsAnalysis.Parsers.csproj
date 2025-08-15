@@ -9,13 +9,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageReference Include="NUnit" Version="3.13.1" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Parsers\DMFX.NewAnalysis.Parser.Common\DMFX.NewsAnalysis.Parser.Common.csproj" />
     <ProjectReference Include="..\..\Parsers\DMFX.NewAnalysis.Parser.OilPrice\DMFX.NewsAnalysis.Parser.OilPrice.csproj" />
+    <ProjectReference Include="..\Test.DMFX.NewsAnalysis.Common\Test.DMFX.NewsAnalysis.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="OilPrice\Pages00\" />
   </ItemGroup>
 
 </Project>
