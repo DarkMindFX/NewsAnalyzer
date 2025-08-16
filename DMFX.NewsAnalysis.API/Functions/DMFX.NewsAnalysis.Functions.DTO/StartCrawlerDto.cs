@@ -20,5 +20,8 @@ namespace DMFX.NewsAnalysis.Functions.DTO
 
         [JsonPropertyName("end_date")]
         public DateTime? EndDate { get; set; }
+
+        [JsonPropertyName("skip_existing")]
+        public bool SkipExisting { get; set; }
     }
 }

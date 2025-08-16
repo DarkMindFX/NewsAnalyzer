@@ -108,6 +108,9 @@ namespace DMFX.NewsAnalysis.Parsers.Test
         }
 
         [TestCase("CrawlerTest00.json")]
+        [TestCase("CrawlerTest01.json")]
+        [TestCase("CrawlerTest02.json")]
+        [TestCase("CrawlerTest03.json")]
         public void CrawlSource_Success(string caseName)
         {
             // Arrange

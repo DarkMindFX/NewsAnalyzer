@@ -24,4 +24,8 @@
     <ProjectReference Include="..\DMFX.NewsAnalysis.Functions.DTO\DMFX.NewsAnalysis.Functions.DTO.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if not exist &quot;$(TargetDir)Plugins&quot; mkdir &quot;$(TargetDir)Plugins&quot;&#xD;&#xA;xcopy &quot;$(SolutionDir)Plugins\DMFX.NewsAnalysis.DAL.MSSQL&quot; &quot;$(TargetDir)Plugins\DMFX.NewsAnalysis.DAL.MSSQL&quot; /Y /E /H /C /I&#xD;&#xA;xcopy &quot;$(SolutionDir)Plugins\DMFX.NewsAnalysis.Parser.OilPrice&quot; &quot;$(TargetDir)Plugins\DMFX.NewsAnalysis.Parser.OilPrice&quot; /Y /E /H /C /I" />
+  </Target>
+
 </Project>
