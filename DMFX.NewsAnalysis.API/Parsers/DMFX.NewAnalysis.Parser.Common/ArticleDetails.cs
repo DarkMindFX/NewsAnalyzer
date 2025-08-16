@@ -9,8 +9,10 @@ namespace DMFX.NewsAnalysis.Parser.Common
 {
     public class ArticleDetails
     {
-        public string ULR { get; set; }
+        public string URL { get; set; }
 
         public string Source { get; set; }
+
+        public DateTime? PublishedDate { get; set; }
     }
 }

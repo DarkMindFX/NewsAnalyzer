@@ -6,7 +6,11 @@
       "launchBrowser": false,
       "environmentVariables": {
         "ServiceConfig__DalInitParams__ConnectionString": "Data Source=localhost; Initial Catalog=NewsAnalysisDB; Encrypt=False; Integrated Security=True;",
-        "ServiceConfig__DALType": "MSSQL"
+        "ServiceConfig__DALType": "MSSQL",
+        "ServiceConfig__StorageInitParams__StorageUrl": "http://127.0.0.1:10000/devstoreaccount1",
+        "ServiceConfig__AppSettings__SessionTimeout": "3600",
+        "ServiceConfig__StorageInitParams__StorageConnectionString": "BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;",
+        "ServiceConfig__OutputQueue": "dmfx-newsanalysis-articles-new"
       }
 
     }

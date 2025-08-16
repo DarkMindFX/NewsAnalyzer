@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Parsers\DMFX.NewAnalysis.Parser.Common\DMFX.NewsAnalysis.Parser.Common.csproj" />
     <ProjectReference Include="..\DMFX.NewsAnalysis.Functions.Common\DMFX.NewsAnalysis.Functions.Common.csproj" />
     <ProjectReference Include="..\DMFX.NewsAnalysis.Functions.DTO\DMFX.NewsAnalysis.Functions.DTO.csproj" />
   </ItemGroup>

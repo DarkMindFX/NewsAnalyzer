@@ -2,12 +2,14 @@
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DMFX.NewsAnalysis.Parser.OilPrice
 {
+    [Export("OilPrice.com", typeof(ISourcePaginator))]
     public class SourcePaginator : ISourcePaginator
     {
         private readonly string _paginationUrl = "https://oilprice.com/Latest-Energy-News/World-News/Page-{0}.html";

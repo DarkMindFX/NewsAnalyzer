@@ -17,6 +17,7 @@ namespace DMFX.NewsAnalysis.Function.ArticleParser;
 public class ArticleParserFn
 {
     const string INPUT_QEUEUE = "dmfx-newsanalysis-articles-new";
+    const string OUTPUT_QEUEUE = "dmfx-newsanalysis-articles-parsed";
 
     private readonly ILogger<ArticleParserFn> _logger;
     private readonly IArticleDal _articlaDal;
@@ -35,7 +36,7 @@ public class ArticleParserFn
     }
 
     [Function(nameof(ArticleParserFn))]
-    [QueueOutput("dmfx-newsanalysis-articles-parsed", Connection = "AzureWebJobsStorage")]
+    [QueueOutput(OUTPUT_QEUEUE, Connection = "AzureWebJobsStorage")]
     public ArticleParsedDto Run([QueueTrigger(INPUT_QEUEUE, Connection = "AzureWebJobsStorage")] string message)
     {
         _logger.LogInformation($"Start processing message:\r\n {message}");
@@ -64,7 +65,6 @@ public class ArticleParserFn
                 throw new ApplicationException(errorMessage);
             }
         }
-
 
     }
 

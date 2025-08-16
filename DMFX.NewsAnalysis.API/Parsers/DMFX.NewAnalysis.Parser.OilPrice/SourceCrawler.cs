@@ -23,8 +23,11 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
         {
             HtmlWeb web = new HtmlWeb();
             int totalArticlesFound = 0;
+            DateTime articelDate = DateTime.MaxValue;
 
-            while (crawlerParams.Paginator.HasNextPage)
+            // iteratingh thru pages if pages available OR until article date is within the specified range
+            while (crawlerParams.Paginator.HasNextPage 
+                    && (crawlerParams.StartDate == null || articelDate >= crawlerParams.StartDate) )
             {
                 var page = crawlerParams.Paginator.GetNextPageUrl();
                 var doc = web.Load(page);
@@ -35,23 +38,24 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
                     var nodes = root.SelectNodes("//div[@class='categoryArticle__content']");
                     foreach (var node in nodes)
                     {
-                        string url = string.Empty;
-                        DateTime articelDate = GetArticleDatetime(node);
+
+                        articelDate = GetArticleDatetime(node);
 
                         // if article date is within the specified range, extract URL
                         if (articelDate != DateTime.MinValue
                             && (crawlerParams.EndDate == null || crawlerParams.EndDate >= articelDate)
                             && (crawlerParams.StartDate == null || crawlerParams.StartDate <= articelDate))
                         {
-                            url = GetArticleUrl(node);
+                            var url = GetArticleUrl(node);
 
                             if (!string.IsNullOrEmpty(url))
                             {
                                 // creating article details
                                 var articleDetails = new ArticleDetails
                                 {
-                                    ULR = url,
-                                    Source = SourceName
+                                    URL = url,
+                                    Source = SourceName,
+                                    PublishedDate = articelDate
                                 };
                                 // raising event
                                 OnArticleAvailable?.Invoke(this, articleDetails);
