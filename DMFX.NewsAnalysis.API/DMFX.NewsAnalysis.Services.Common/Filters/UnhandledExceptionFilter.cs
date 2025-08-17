@@ -1,16 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DMFX.NewsAnalysis.Services.Common.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using API.Exceptions;
-using System;
-using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
-using System.Linq;
+using System;
 using System.Net;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
-namespace DMFX.NewsAnalysis.API.Filters
+namespace DMFX.NewsAnalysis.Services.Common.Filters
 {
     public class UnhandledExceptionFilter : ExceptionFilterAttribute
     {

@@ -33,10 +33,10 @@ namespace DMFX.NewsAnalysis.API.Controllers.V1
         {
             var dto = new DTO.HealthResponse();
             dto.Timestamp = DateTime.UtcNow;
-            dto.Message = "DMFX.NewsAnalysis.API health details";
+            dto.Message = "DMFX.NewsAnalysis.MCP health details";
 
             dto.Diagnostics = new Dictionary<string, object>();
-            dto.Diagnostics["DMFX.NewsAnalysis.API"] = "OK";
+            dto.Diagnostics["DMFX.NewsAnalysis.MCP"] = "OK";
 
             bool canConnectDal = CanConnectDal();
             dto.Diagnostics["DAL"] = canConnectDal ? "OK" : "FAIL";

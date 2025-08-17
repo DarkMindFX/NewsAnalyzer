@@ -7,10 +7,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DMFX.NewsAnalysis.DTO\DMFX.NewsAnalysis.DTO.csproj" />
     <ProjectReference Include="..\DMFX.NewsAnalysis.Interfaces\DMFX.NewsAnalysis.Interfaces.csproj" />
     <ProjectReference Include="..\DMFX.NewsAnalysis.Services.DAL\DMFX.NewsAnalysis.Services.DAL.csproj" />
   </ItemGroup>

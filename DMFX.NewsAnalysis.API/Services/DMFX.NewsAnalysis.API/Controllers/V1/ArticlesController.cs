@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using DMFX.NewsAnalysis.API.Filters;
+using DMFX.NewsAnalysis.Services.Common.Filters;
 using DMFX.NewsAnalysis.Interfaces.Entities;
 using DMFX.NewsAnalysis.Utils.Convertors;
 using Microsoft.AspNetCore.Mvc;
