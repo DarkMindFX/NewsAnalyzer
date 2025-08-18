@@ -11,7 +11,6 @@ namespace DMFX.NewsAnalysis.API.Helpers
         [JsonPropertyName("DALType")]
         public string DALType { get; set; }
 
-
         [JsonPropertyName("DALInitParams")]
         public Dictionary<string, string> DALInitParams { get; set; }
     }
