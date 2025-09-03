@@ -51,7 +51,7 @@ namespace DMFX.NewsAnalysis.Parsers.Test
             // Act
             var article = parser.Parse(content);
             // Assert
-            Assert.IsTrue(article.Timestamp <= DateTime.Now);
+            Assert.IsTrue(article.Timestamp <= DateTime.UtcNow);
             Assert.AreEqual(article.Title, caseSetup.ExpectedResult.Title);
             Assert.AreEqual(article.Content, caseSetup.ExpectedResult.Content);
             Assert.AreEqual(article.NewsTime, caseSetup.ExpectedResult.NewsTime);

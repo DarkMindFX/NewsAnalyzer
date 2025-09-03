@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMFX.NewsAnalysis.API.Sourc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMFX.NewsAnalysis.MCP", "Services\DMFX.NewsAnalysis.MCP\DMFX.NewsAnalysis.MCP.csproj", "{181D0420-9DBB-45F9-8FAA-7F6288CAAF9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMFX.NewsAnalysis.API.CrawlerTimer", "Functions\DMFX.NewsAnalysis.API.CrawlerTimer\DMFX.NewsAnalysis.API.CrawlerTimer.csproj", "{F66B3A47-0777-DD27-79C3-DC39C1757BF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -142,6 +144,10 @@ Global
 		{181D0420-9DBB-45F9-8FAA-7F6288CAAF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{181D0420-9DBB-45F9-8FAA-7F6288CAAF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{181D0420-9DBB-45F9-8FAA-7F6288CAAF9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F66B3A47-0777-DD27-79C3-DC39C1757BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F66B3A47-0777-DD27-79C3-DC39C1757BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F66B3A47-0777-DD27-79C3-DC39C1757BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F66B3A47-0777-DD27-79C3-DC39C1757BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,6 +167,7 @@ Global
 		{349EBEBA-9587-4987-BFCF-F78DA77C32DB} = {6D7BA996-E702-42BE-B715-344F9C58DC75}
 		{4B73B7AE-2CC1-4D95-9F10-455AF228C9BA} = {6D7BA996-E702-42BE-B715-344F9C58DC75}
 		{181D0420-9DBB-45F9-8FAA-7F6288CAAF9D} = {812EC8C4-DF64-4E7E-93BC-FA8CF25A095A}
+		{F66B3A47-0777-DD27-79C3-DC39C1757BF7} = {6D7BA996-E702-42BE-B715-344F9C58DC75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCC25D44-E0EE-4AA8-BD23-47C384963292}

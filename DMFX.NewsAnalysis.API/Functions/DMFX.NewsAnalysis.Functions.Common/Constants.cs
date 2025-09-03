@@ -12,5 +12,10 @@
 
         public static readonly string ENV_SESSION_TIMEOUT = "ServiceConfig__AppSettings__SessionTimeout";
 
+        public static readonly string ENV_QUEUE_EXTRACT_REQUESTS = "ServiceConfig__CrawlerQueueExtractRequests";
+
+        public static readonly string ENV_CRAWLER_TIME_LOOKBACK_MINS = "ServiceConfig__CrawlerTimeLookbackMins";
+
+        public static readonly string ENV_CRAWLER_SKIP_EXISTING = "ServiceConfig__CrawlerSkipExisting";
     }
 }

@@ -18,7 +18,7 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
             {
                 Title = json.Headline,
                 Content = json.ArticleBody,
-                Timestamp = DateTime.Now,
+                Timestamp = DateTime.UtcNow,
                 Url = json.URL,
                 NewsTime = json.DateModified
             };
