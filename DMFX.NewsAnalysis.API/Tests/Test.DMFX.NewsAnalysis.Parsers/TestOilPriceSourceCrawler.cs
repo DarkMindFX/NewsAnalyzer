@@ -1,4 +1,6 @@
-﻿using DMFX.NewsAnalysis.Parser.Common;
+﻿using DMFX.NewsAnalysis.Interfaces;
+using DMFX.NewsAnalysis.Interfaces.Entities;
+using DMFX.NewsAnalysis.Parser.Common;
 using DMFX.NewsAnalysis.Parser.OilPrice;
 using NUnit.Framework;
 using System;
@@ -35,6 +37,9 @@ namespace DMFX.NewsAnalysis.Parsers.Test
 
             [JsonPropertyName("DateEnd")]
             public DateTime? DateEnd { get; set; }
+
+            [JsonPropertyName("SkipExisting")]
+            public bool SkipExisting { get; set; }
 
             [JsonPropertyName("ExpectedResult")]
             public ExpectedResultValues ExpectedResult
@@ -93,6 +98,54 @@ namespace DMFX.NewsAnalysis.Parsers.Test
             }
         }
 
+        class TestArticleDal : IArticleDal
+        {
+            public IInitParams CreateInitParams()
+            {
+                throw new NotImplementedException();
+            }
+
+            public bool Delete(long? ID)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Article Get(long? ID)
+            {
+                return new Article() { ID = ID };
+            }
+
+            public IList<Article> GetAll()
+            {
+                throw new NotImplementedException();
+            }
+
+            public IList<Article> GetByNewsSourceID(long NewsSourceID)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Article GetByUrl(string Url)
+            {
+                return new Article() { Url = Url };
+            }
+
+            public void Init(IInitParams initParams)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Article Insert(Article entity)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Article Update(Article entity)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         #endregion
 
         [SetUp]
@@ -111,6 +164,7 @@ namespace DMFX.NewsAnalysis.Parsers.Test
         [TestCase("CrawlerTest01.json")]
         [TestCase("CrawlerTest02.json")]
         [TestCase("CrawlerTest03.json")]
+        [TestCase("CrawlerTest04_SkipExisting.json")]
         public void CrawlSource_Success(string caseName)
         {
             // Arrange
@@ -123,7 +177,9 @@ namespace DMFX.NewsAnalysis.Parsers.Test
             {
                 StartDate = testCaseSetup.DateStart,
                 EndDate = testCaseSetup.DateEnd,
-                Paginator = paginator
+                SkipExisting = testCaseSetup.SkipExisting,
+                Paginator = paginator,
+                ArticleDal = new TestArticleDal()
             });
 
             Assert.AreEqual(testCaseSetup.ExpectedResult.ArticlesFound, articlesCount, "Number of articles found does not match expected result.");

@@ -2,8 +2,8 @@
   "SourceFolder": "Pages00",
   "DateStart": "2025-08-12",
   "DateEnd": null,
-  "SkipExisting": false,
+  "SkipExisting": true,
   "ExpectedResult": {
-    "ArticlesFound": 39
+    "ArticlesFound": 0
   }
 }

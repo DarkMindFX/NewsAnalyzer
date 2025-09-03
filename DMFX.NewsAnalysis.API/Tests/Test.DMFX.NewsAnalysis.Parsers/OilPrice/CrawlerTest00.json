@@ -2,6 +2,7 @@
   "SourceFolder": "Pages00",
   "DateStart": null,
   "DateEnd": null,
+  "SkipExisting": false,
   "ExpectedResult": {
     "ArticlesFound":  60
   }
