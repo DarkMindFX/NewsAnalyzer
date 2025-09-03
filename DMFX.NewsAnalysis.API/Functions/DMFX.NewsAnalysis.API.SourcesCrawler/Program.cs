@@ -29,7 +29,7 @@ namespace DMFX.NewsAnalysis.API.SourcesCrawler
         {
             var dalArticles = InitDal<DMFX.NewsAnalysis.Interfaces.IArticleDal>();
             services.AddSingleton<DMFX.NewsAnalysis.Interfaces.IArticleDal>(dalArticles);
-            services.AddSingleton<DMFX.NewsAnalysis.Services.Dal.IAnalyzerDal, DMFX.NewsAnalysis.Services.Dal.AnalyzerDal>();
+            services.AddSingleton<DMFX.NewsAnalysis.Services.Dal.IArticleDal, DMFX.NewsAnalysis.Services.Dal.ArticleDal>();
 
             services.AddSingleton<ExportProvider>(this.Container);
         }

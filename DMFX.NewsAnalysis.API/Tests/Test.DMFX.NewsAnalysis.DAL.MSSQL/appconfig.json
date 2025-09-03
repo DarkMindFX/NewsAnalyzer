@@ -1,14 +1,14 @@
 ﻿{
   "DALInitParams": {
-    "ConnectionString": "Data Source=localhost; Initial Catalog=PhotoPrint; User ID=ppt_test_account; Password=PPTTestAccount2021;"
+    "ConnectionString": "Data Source=localhost; Initial Catalog=NewsAnalysisDB; Encrypt=False; Trusted_Connection=True;"
   },
 
   "DALInitParams_InvalidHost": {
-    "ConnectionString": "Data Source=nosuchhost; Initial Catalog=PhotoPrint; User ID=ppt_test_account; Password=PPTTestAccount2021;"
+    "ConnectionString": "Data Source=nosuchhost; Initial Catalog=NewsAnalysisDB; Encrypt=False; Trusted_Connection=True;"
   },
 
   "DALInitParams_InvalidDb": {
-    "ConnectionString": "Data Source=localhost; Initial Catalog=nosuchdb; User ID=hrt_test_account; Password=PPTTestAccount2021;"
+    "ConnectionString": "Data Source=localhost; Initial Catalog=nosuchdb; Encrypt=False; Trusted_Connection=True;"
   }
 
 }

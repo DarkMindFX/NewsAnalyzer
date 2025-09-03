@@ -29,11 +29,11 @@ public class StartCrawlerFn
 
 
     public StartCrawlerFn(ILogger<StartCrawlerFn> logger,
-                            IArticleDal newsSourceDal,
+                            IArticleDal articleDal,
                             ExportProvider exortProvder)
     {
         _logger = logger;
-        _articlaDal = newsSourceDal;
+        _articlaDal = articleDal;
         _exortProvder = exortProvder;
     }
 
@@ -76,7 +76,9 @@ public class StartCrawlerFn
             {
                 StartDate = request.StartDate,
                 EndDate = request.EndDate,
-                Paginator = paginator
+                SkipExisting = request.SkipExisting,
+                Paginator = paginator,
+                ArticleDal = _articlaDal
             });
         }
         else

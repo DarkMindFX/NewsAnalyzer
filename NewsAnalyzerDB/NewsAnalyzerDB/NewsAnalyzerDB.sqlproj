@@ -113,6 +113,7 @@
     <Build Include="procs\Article\p_Article_GetDetails.sql" />
     <Build Include="procs\Article\p_Article_Insert.sql" />
     <Build Include="procs\Article\p_Article_Update.sql" />
+    <Build Include="procs\Article\p_Article_GetDetailsByUrl.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="NewsAnalyzerDB.refactorlog" />

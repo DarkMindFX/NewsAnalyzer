@@ -54,6 +54,33 @@ namespace DMFX.NewsAnalysis.DAL.MSSQL
             return result;
         }
 
+        public Article GetByUrl(System.String Url)
+        {
+            Article result = default(Article);
+
+            using (SqlConnection conn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand("p_Article_GetDetailsByUrl", conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                AddParameter(cmd, "@Url", System.Data.SqlDbType.NVarChar, 250,
+                               ParameterDirection.Input, false, 0, 0, string.Empty, DataRowVersion.Current, Url);
+
+
+                var pFound = AddParameter(cmd, "@Found", SqlDbType.Bit, 0, ParameterDirection.Output, false, 0, 0, string.Empty, DataRowVersion.Current, 0);
+
+                var ds = FillDataSet(cmd);
+
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    result = ArticleFromRow(ds.Tables[0].Rows[0]);
+                }
+            }
+
+            return result;
+        }
+
+
         public bool Delete(System.Int64? ID)
         {
             bool result = false;

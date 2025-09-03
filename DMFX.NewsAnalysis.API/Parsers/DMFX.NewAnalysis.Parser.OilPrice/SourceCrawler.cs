@@ -50,16 +50,19 @@ namespace DMFX.NewsAnalysis.Parser.OilPrice
 
                             if (!string.IsNullOrEmpty(url))
                             {
-                                // creating article details
-                                var articleDetails = new ArticleDetails
+                                if (!crawlerParams.SkipExisting || crawlerParams.ArticleDal.GetByUrl(url) == null)
                                 {
-                                    URL = url,
-                                    Source = SourceName,
-                                    PublishedDate = articelDate
-                                };
-                                // raising event
-                                OnArticleAvailable?.Invoke(this, articleDetails);
-                                ++totalArticlesFound;
+                                    // creating article details
+                                    var articleDetails = new ArticleDetails
+                                    {
+                                        URL = url,
+                                        Source = SourceName,
+                                        PublishedDate = articelDate
+                                    };
+                                    // raising event
+                                    OnArticleAvailable?.Invoke(this, articleDetails);
+                                    ++totalArticlesFound;
+                                }
                             }
 
                         }

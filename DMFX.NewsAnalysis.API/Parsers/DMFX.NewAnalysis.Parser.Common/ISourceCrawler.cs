@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DMFX.NewsAnalysis.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,16 @@ namespace DMFX.NewsAnalysis.Parser.Common
 {
     public class SourceCrawlerParams
     {
+        public SourceCrawlerParams() 
+        { 
+            SkipExisting = false;
+        }
+
         public DateTime?    StartDate { get; set; }
         public DateTime?    EndDate { get; set; }
+        public bool SkipExisting { get; set; }
         public ISourcePaginator Paginator { get; set; }
+        public IArticleDal ArticleDal { get; set; }
     }
 
     public interface ISourceCrawler
