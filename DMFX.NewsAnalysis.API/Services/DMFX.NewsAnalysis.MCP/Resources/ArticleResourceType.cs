@@ -1,6 +1,8 @@
 ﻿using DMFX.NewsAnalysis.DTO;
 using DMFX.NewsAnalysis.Interfaces;
+using DMFX.NewsAnalysis.MCP.Helpers;
 using DMFX.NewsAnalysis.Utils.Convertors;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources;
 using ModelContextProtocol.Protocol;
 using ModelContextProtocol.Server;
@@ -18,6 +20,7 @@ namespace DMFX.NewsAnalysis.MCP.Resources
         [Description("Article with given id")]
         public static ResourceContents SingleArticle(RequestContext<ReadResourceRequestParams> requestContext,
                                                         IArticleDal articleDal,
+                                                        IOptions<ServiceConfig> svcConfig,
                                                         int id)
         {
             var resource = articleDal.Get(id);
@@ -30,7 +33,7 @@ namespace DMFX.NewsAnalysis.MCP.Resources
                 {
                     Text = JsonSerializer.Serialize(dto),
                     MimeType = "text/plain",
-                    Uri = resource.Url,
+                    Uri = $"{svcConfig.Value.APIBaseUrl}articles/{id}"
                 };
 
                 return response;
@@ -45,6 +48,7 @@ namespace DMFX.NewsAnalysis.MCP.Resources
         [Description("List of Articles ID's published within given date range")]
         public static ResourceContents ArticlesByDateRange(RequestContext<ReadResourceRequestParams> requestContext,
                                                         IArticleDal articleDal,
+                                                        IOptions<ServiceConfig> svcConfig,
                                                         DateTime dtStart,
                                                         DateTime dtEnd)
         {
@@ -66,7 +70,7 @@ namespace DMFX.NewsAnalysis.MCP.Resources
             {
                 Text = JsonSerializer.Serialize(articleInfos),
                 MimeType = "text/plain",
-                Uri = null,
+                Uri = $"{svcConfig.Value.APIBaseUrl}articles/bydates/{dtStart.Year}-{dtStart.Month}-{dtStart.Day}/{dtEnd.Year}-{dtEnd.Month}-{dtEnd.Day}",
             };
 
             return response;

@@ -47,9 +47,12 @@ namespace DMFX.NewsAnalysis.MCP
 
             PrepareComposition();
 
-            var serviceConfig = builder.Configuration.GetSection("ServiceConfig").Get<ServiceConfig>();
+            var serviceConfigSection = builder.Configuration.GetSection("ServiceConfig");
+            var serviceConfig = serviceConfigSection.Get<ServiceConfig>();
 
             AddInjections(builder.Services, serviceConfig);
+
+            builder.Services.Configure<ServiceConfig>(serviceConfigSection);
 
             return builder;
 

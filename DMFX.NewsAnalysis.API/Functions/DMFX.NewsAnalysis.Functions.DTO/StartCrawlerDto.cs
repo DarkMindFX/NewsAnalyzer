@@ -9,6 +9,11 @@ namespace DMFX.NewsAnalysis.Functions.DTO
 {
     public class StartCrawlerDto
     {
+        public StartCrawlerDto()
+        {
+            SkipExisting = true;
+        }
+
         [JsonPropertyName("header")]
         public MessageHeader Header { get; set; }
 

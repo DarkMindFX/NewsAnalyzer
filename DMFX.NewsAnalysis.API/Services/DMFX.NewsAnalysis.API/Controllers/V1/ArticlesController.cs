@@ -109,7 +109,32 @@ namespace DMFX.NewsAnalysis.API.Controllers.V1
 
             return response;
         }
-        
+
+        //[Authorize]
+        [HttpGet("bydates/{datestart}/{dateend}")]
+        public IActionResult GetByDates(DateTime datestart, DateTime dateend)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalArticle.GetAll().Where( a => a.NewsTime >= datestart && a.NewsTime <= dateend);
+
+            IList<DTO.Article> dtos = new List<DTO.Article>();
+
+            foreach (var p in entities)
+            {
+                var dto = ArticleConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteArticle")]
         public IActionResult Delete(System.Int64? id)

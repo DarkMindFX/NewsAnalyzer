@@ -11,27 +11,27 @@ namespace DMFX.NewsAnalysis.Utils.Convertors
         {
             var dto = new DTO.Article()
             {
-        		        ID = entity.ID,
+                ID = entity.ID,
 
-				        Title = entity.Title,
+                Title = entity.Title,
 
-				        Content = entity.Content,
+                Content = entity.Content,
 
-				        Timestamp = entity.Timestamp,
+                Timestamp = entity.Timestamp,
 
-				        NewsSourceID = entity.NewsSourceID,
+                NewsSourceID = entity.NewsSourceID,
 
-				        Url = entity.Url,
+                Url = entity.Url,
 
-				        NewsTime = entity.NewsTime,
+                NewsTime = entity.NewsTime,
 
-				
+
             };
 
-                        if(url != null)
+            if (url != null)
             {
-                dto.Links.Add(new DTO.Link(url.Action("GetArticle", "articles", new { id = dto.ID  }), "self", "GET"));
-                dto.Links.Add(new DTO.Link(url.Action("DeleteArticle", "articles", new { id = dto.ID  }), "delete_article", "DELETE"));
+                dto.Links.Add(new DTO.Link(url.Action("GetArticle", "articles", new { id = dto.ID }), "self", "GET"));
+                dto.Links.Add(new DTO.Link(url.Action("DeleteArticle", "articles", new { id = dto.ID }), "delete_article", "DELETE"));
                 dto.Links.Add(new DTO.Link(url.Action("InsertArticle", "articles"), "insert_article", "POST"));
                 dto.Links.Add(new DTO.Link(url.Action("UpdateArticle", "articles"), "update_article", "PUT"));
             }
@@ -43,23 +43,23 @@ namespace DMFX.NewsAnalysis.Utils.Convertors
         {
             var entity = new Interfaces.Entities.Article()
             {
-                
-        		        ID = dto.ID,
 
-				        Title = dto.Title,
+                ID = dto.ID,
 
-				        Content = dto.Content,
+                Title = dto.Title,
 
-				        Timestamp = dto.Timestamp,
+                Content = dto.Content,
 
-				        NewsSourceID = dto.NewsSourceID,
+                Timestamp = dto.Timestamp,
 
-				        Url = dto.Url,
+                NewsSourceID = dto.NewsSourceID,
 
-				        NewsTime = dto.NewsTime,
+                Url = dto.Url,
 
-				
-     
+                NewsTime = dto.NewsTime,
+
+
+
             };
 
             return entity;
