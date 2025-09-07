@@ -16,6 +16,7 @@ namespace DMFX.NewsAnalysis.MCP
         {
             var program = new Program();
             program.Initialize(args);
+            Console.WriteLine("Service stopped. Press any key to exit...");
         }
 
         public void Initialize(string[] args)
