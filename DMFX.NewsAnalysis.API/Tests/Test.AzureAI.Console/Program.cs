@@ -23,6 +23,7 @@ namespace Test.AzureAI.ConsoleApp
 
             // ChatAgentExample();
             ChatCompletionExample();
+            ChatCompletionWithToolsExample();
         }
 
         private static void ChatAgentExample()
@@ -108,6 +109,43 @@ namespace Test.AzureAI.ConsoleApp
                 Messages = new List<ChatRequestMessage>(),
                 Model = modelDeplName,
             };
+
+            string input = string.Empty;
+            while (!input.ToLower().Equals("exit"))
+            {
+                Console.Write("You: ");
+                input = Console.ReadLine();
+                if (!string.IsNullOrEmpty(input))
+                {
+                    var message = new ChatRequestUserMessage(input);
+                    requestOptions.Messages.Clear();
+                    requestOptions.Messages.Add(message);
+
+                    Response<ChatCompletions> response = chatCompletionsClient.Complete(requestOptions);
+                    Console.WriteLine("AI: " + response.Value.Content + "\r\n");
+                }
+            }
+        }
+
+        private static void ChatCompletionWithToolsExample()
+        {
+            var connstring = new Uri(AZURE_AI_ENDPOINT);
+            var modelDeplName = AZURE_AI_MODEL;
+
+            var credential = new AzureKeyCredential(AZURE_AI_KEY);
+
+            ChatCompletionsClient chatCompletionsClient = new ChatCompletionsClient(
+                    new Uri(AZURE_AI_ENDPOINT),
+                    new AzureKeyCredential(AZURE_AI_KEY)
+                );
+
+            var requestOptions = new ChatCompletionsOptions()
+            {
+                Messages = new List<ChatRequestMessage>(),
+                Model = modelDeplName
+            };
+
+            
 
             string input = string.Empty;
             while (!input.ToLower().Equals("exit"))
